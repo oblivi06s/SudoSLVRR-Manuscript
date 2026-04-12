@@ -1,0 +1,224 @@
+\appendix
+\chapter*{Appendix A}
+\addcontentsline{toc}{chapter}{Appendix A}
+
+% Keep section numbering as A.1, A.2, etc.
+\setcounter{chapter}{1} % A
+\renewcommand{\thechapter}{A}
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+\setcounter{section}{0}
+
+\section{Baseline Configuration}
+\begin{table}[H]
+    \caption{Baseline Configuration}
+    \centering
+    \renewcommand{\arraystretch}{1.2} 
+    \setlength{\tabcolsep}{10pt} 
+    \begin{tabular}{|l|l|}
+    \hline
+    \textbf{Parameter}                          & \textbf{Baseline Value}                               \\ \hline
+    $q_0$ (Exploitation Factor)                 & 0.9                                        \\ \hline
+    $\xi$ (Local Pheromone Update)              & 0.1                                         \\ \hline
+    $\rho_0$ (Pheromone Persistence)            & 0.9                                        \\ \hline
+    $\rho_{BVE}$ (Best Pheromone Evaporation)   & 0.005                                                                            \\ \hline
+    Number of ACS colonies                      & 2                                          \\ \hline
+    Number of Ants (Per Colony)                 & 3                                           \\ \hline
+    Entropy Threshold                           & 92.5\% of the Max Entropy (1.47)                              \\ \hline
+    Convergence Threshold                     & 0.8                                                      \\ \hline
+    Thread Count                                & 3                                         \\ \hline
+    Communication Threshold                     & 200 iterations                             \\ \hline
+    Early Communication Interval                & 100 iterations                           \\ \hline
+    Late Communication Interval                 & 10 iterations                              \\ \hline
+    \textbf{Timeouts}                           &                                                       \\ \hline
+    $9 \times 9$ Sudoku                         & 5 seconds                                             \\ \hline
+    $16 \times 16$ Sudoku                       & 20 seconds                                            \\ \hline
+    $25 \times 25$ Sudoku                       & 120 seconds \\ \hline
+    \end{tabular}
+    \label{tab:baseline_parameters}
+\end{table}
+
+Table~\ref{tab:baseline_parameters} shows the baseline configuration of parameters which are adopted from the prior ACO, DCM-ACO, and Parallel ACO studies. Utilizing this uniform setting across all Sudoku instances, SudoSLVRR was able to show improvement in runtime and scalability because of the multithread multi-colony ACO framework. 
+
+The following section contains the different ablation studies performed to get the optimal values for the proposed multithreaded multi-colony ACO solver. These studies not only determine the optimal parameter values but also provide empirical trends how changes in parameter values affects the performance of the solver.
+
+\section{Ablation Study}
+\subsection{Ablation Study 1: Core ACO Parameters}
+
+\begin{table}[H]
+    \centering
+    \caption{Summary of the impact of different values of Core ACO parameter on model performance across $9\times9$, $16\times16$, and $25\times25$ Sudoku Instances.}
+    \label{tab:ablation_coreACO_summary}
+    \footnotesize
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}llccc ccc ccc@{}}
+        \toprule
+        \multicolumn{2}{c}{\textbf{Parameter}} & \multicolumn{3}{c}{\textbf{9 x 9}} & \multicolumn{3}{c}{\textbf{16 x 16}} & \multicolumn{3}{c}{\textbf{25 x 25}} \\
+        \cmidrule(lr){1-2} \cmidrule(lr){3-5} \cmidrule(lr){6-8} \cmidrule(lr){9-11}
+        Type & Value & Succ. & Time $\pm$ Std. (s) & Iter. & Succ. & Time $\pm$ Std. (s) & Iter. & Succ. & Time $\pm$ Std. (s) & Iter. \\
+        \midrule
+        \multirow{5}{*}{\textbf{Ants}} 
+        & 3  & 100 & 0.0595 $\pm$ 0.0562 & 69.25 & 100 & 0.0717 $\pm$ 0.0946 & 15.71 & \textbf{79} & 25.7751 $\pm$ 23.8274 & 1288.80 \\
+        & 5  & 100 & 0.0661 $\pm$ 0.0571 & 35.18 & 100 & 0.0784 $\pm$ 0.1096 & 10.08 & 67 & 27.2181 $\pm$ 25.4636 & 825.49 \\
+        & 7  & 100 & 0.0696 $\pm$ 0.0595 & 29.60 & 100 & 0.1171 $\pm$ 0.2042 & 10.87 & 63 & 30.3828 $\pm$ 25.3579 & 642.86 \\
+        & 9  & 100 & 0.0606 $\pm$ 0.0569 & 22.23 & 100 & 0.1345 $\pm$ 0.3323 & 9.34 & 61 & 28.2931 $\pm$ 25.8455 & 472.85 \\
+        & 11 & 100 & 0.0694 $\pm$ 0.0632 & 20.33 & 100 & 0.1227 $\pm$ 0.1774 & 7.09 & 60 & 39.3569 $\pm$ 32.0693 & 475.31 \\
+        \midrule
+        \multirow{5}{*}{\boldmath{$q_0$}} 
+        & 0.3  & 100 & 0.0519 $\pm$ 0.0504 & 57.35 & 100 & 0.1021 $\pm$ 0.1254 & 22.16 & 17 & 40.6258 $\pm$ 32.6026 & 1734.47 \\
+        & 0.5  & 100 & 0.0533 $\pm$ 0.0680 & 58.04 & 100 & 0.0922 $\pm$ 0.1230 & 19.81 & 39 & 49.1222 $\pm$ 30.4985 & 2001.21 \\
+        & 0.7  & 100 & 0.0650 $\pm$ 0.0660 & 71.48 & 100 & 0.0919 $\pm$ 0.1115 & 19.40 & 65 & 35.2837 $\pm$ 24.6907 & 1376.74 \\
+        & 0.9  & 100 & 0.0679 $\pm$ 0.0642 & 74.31 & 100 & 0.0992 $\pm$ 0.1596 & 20.88 & \textbf{75} & 32.1106 $\pm$ 28.2252 & 1287.23 \\
+        & 0.99 & 100 & 0.0530 $\pm$ 0.0464 & 57.79 & 100 & 0.1100 $\pm$ 0.2029 & 23.00 & 43 & 30.33108 $\pm$ 31.6785 & 1135.88 \\
+        \midrule
+        \multirow{5}{*}{\boldmath{$\xi$}} 
+        & 0.01 & 100 & 0.0653 $\pm$ 0.0665 & 70.36 & 100 & 0.1081 $\pm$ 0.1830 & 21.58 & 65 & 30.1843 $\pm$ 27.0352 & 1208.51 \\
+        & 0.1  & 100 & 0.0584 $\pm$ 0.0550 & 61.39 & 100 & 0.1465 $\pm$ 0.2813 & 27.96 & \textbf{79} & 30.1868 $\pm$ 28.7080 & 1208.46 \\
+        & 0.3  & 100 & 0.0709 $\pm$ 0.0645 & 74.26 & 100 & 0.1633 $\pm$ 0.4119 & 30.94 & 78 & 30.2608 $\pm$ 26.7856 & 1201.76 \\
+        & 0.5  & 100 & 0.0665 $\pm$ 0.0690 & 62.18 & 100 & 0.1437 $\pm$ 0.2587 & 27.37 & 75 & 40.5462 $\pm$ 33.8534 & 1652.87 \\
+        & 0.7  & 100 & 0.0631 $\pm$ 0.0613 & 64.70 & 100 & 0.1606 $\pm$ 0.3161 & 30.50 & 73 & 31.6859 $\pm$ 29.7302 & 1377.26 \\
+        \midrule
+        \multirow{5}{*}{\boldmath{$\rho$}} 
+        & 0.3  & 100 & 0.0641 $\pm$ 0.0585 & 69.78 & 100 & 0.1831 $\pm$ 0.5829 & 38.91 & 62 & 29.4750 $\pm$ 23.5596 & 958.39 \\
+        & 0.5  & 100 & 0.0745 $\pm$ 0.0689 & 80.85 & 100 & 0.0851 $\pm$ 0.1285 & 17.91 & 68 & 32.7818 $\pm$ 28.8518 & 1309.47 \\
+        & 0.7  & 100 & 0.0556 $\pm$ 0.0531 & 60.01 & 100 & 0.1348 $\pm$ 0.2677 & 28.37 & 74 & 31.5863 $\pm$ 28.3308 & 1086.62 \\
+        & 0.9  & 100 & 0.0585 $\pm$ 0.0617 & 63.88 & 100 & 0.0831 $\pm$ 0.1330 & 17.56 & 76 & 25.9854 $\pm$ 24.9172 & 1012.89 \\
+        & 0.99 & 100 & 0.0627 $\pm$ 0.0525 & 66.80 & 100 & 0.2234 $\pm$ 1.2599 & 46.80 & \textbf{77} & 37.1860 $\pm$ 32.7398 & 1490.71 \\
+        \midrule
+        \multirow{5}{*}{\boldmath{$\rho_{evap}$}} 
+        & 0.0025 & 100 & 0.0609 $\pm$ 0.0583 & 66.52 & 100 & 0.1201 $\pm$ 0.1954 & 25.36 & 69 & 31.5318 $\pm$ 29.3949 & 1270.20 \\
+        & 0.005  & 100 & 0.0572 $\pm$ 0.0636 & 62.20 & 100 & 0.0874 $\pm$ 0.1069 & 18.56 & 81 & 35.5527 $\pm$ 29.0657 & 1434.05 \\
+        & 0.0075 & 100 & 0.0656 $\pm$ 0.0751 & 71.11 & 100 & 0.0932 $\pm$ 0.1573 & 19.71 & 76 & 29.9986 $\pm$ 28.4149 & 1091.39 \\
+        & 0.01   & 100 & 0.0571 $\pm$ 0.0734 & 62.31 & 100 & 0.1003 $\pm$ 0.1569 & 21.20 & 76 & 32.0954 $\pm$ 27.2439 & 1167.88 \\
+        & 0.0125 & 100 & 0.0628 $\pm$ 0.0744 & 68.90 & 100 & 0.1058 $\pm$ 0.1888 & 22.33 & \textbf{87} & 35.0022 $\pm$ 32.6329 & 1478.68 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+    In table~\ref{tab:ablation_coreACO_summary}, we can see that the lower the number of ants the better the performance of the model. Since the greediness of ants is set to 90\%, then sub-optimal solutions are over-reinforced as more ants choose cell-value pairs with higher pheromone concentration. 
+    
+    Regarding the parameter, $q_{0}$, that controls the greediness of the ants, we can see that setting this parameter to its maximum value restricts the ACS to be flexible and tends to choose paths with the highest pheromone value all the time. Note that setting this parameter higher means that ants choose the cell-value pairs  with highest pheromone concentration. On the other hand, as ACS colony is known for its aggressive exploitation, setting this parameter down results in poor performance. Setting this parameter to $0.9$ leaves room for randomness preventing premature convergence. 
+
+    The parameter $\xi$ dictates how fast the pheromone evaporates right after the ants move. This makes a cell-value pair less attractive to subsequent ants. Setting this parameter to its minimum value promotes premature convergence. On the other hand, higher values like 0.5 and 0.7 removes large amounts of pheromone making the ants lose promising solutions. 
+
+    We can also observe from the table that setting $\rho$ parameter to its maximum value provides the best performance. When this parameter is set to its maximum value, ants deposit large pheromones to the current best solution. This works in the multi-colony framework as ACS is expected to be aggressive when it comes to exploitation as it can receive diversity from the MMAS colony. 
+
+    The parameter $\rho_{BVE}$ controls the evaporation of the best path's pheromone from the most successful path so far. Over time, the pheromone of this path reduces allowing the ants to accept a new successful path. Setting this parameter to a higher value allows the ants to forget how good the path was faster thus improving diversity. 
+ 
+
+\begin{table}[H]
+    \centering
+    \caption{Summary of the impact of Timeout values on model performance across $9\times9$, $16\times16$, and $25\times25$ Sudoku Instances.}
+    \label{tab:ablation_timeout}
+    \footnotesize
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}llccc ccc ccc@{}}
+        \toprule
+        \multicolumn{2}{c}{\textbf{Parameter}} & \multicolumn{3}{c}{\textbf{9 x 9}} & \multicolumn{3}{c}{\textbf{16 x 16}} & \multicolumn{3}{c}{\textbf{25 x 25}} \\
+        \cmidrule(lr){1-2} \cmidrule(lr){3-5} \cmidrule(lr){6-8} \cmidrule(lr){9-11}
+        Type & Value & Succ. & Time $\pm$ Std. (s) & Iter. & Succ. & Time $\pm$ Std. (s) & Iter. & Succ. & Time $\pm$ Std. (s) & Iter. \\
+        \midrule
+        \multirow{5}{*}{\textbf{Timeout}} 
+        & 1 / 10 / 60   & 100 & 0.0660 $\pm$ 0.0636 & 67.69 & 100 & 0.0552 $\pm$ 0.0782 & 11.71 & 75 & 36.2075 $\pm$ 32.7370 & 1324.25 \\
+        & 3 / 15 / 90   & 100 & 0.0621 $\pm$ 0.0680 & 64.47 & 100 & 0.1472 $\pm$ 0.4896 & 31.46 & 71 & 32.8835 $\pm$ 28.5193 & 1274.79 \\
+        & 5 / 20 / 120  & 100 & 0.0605 $\pm$ 0.0519 & 65.10 & 100 & 0.0970 $\pm$ 0.1891 & 20.70 & 77 & 31.9318 $\pm$ 29.3837 & 1238.49 \\
+        & 7 / 25 / 150  & 100 & 0.0648 $\pm$ 0.0657 & 68.12 & 100 & 0.0981 $\pm$ 0.1560 & 21.05 & 75 & 28.7912 $\pm$ 28.2169 & 1127.69 \\
+        & 9 / 30 / 180  & 100 & 0.0731 $\pm$ 0.0724 & 79.34 & 100 & 0.1156 $\pm$ 0.1884 & 24.68 & \textbf{78} & 33.6038 $\pm$ 29.5668 & 1312.29 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+
+    For the timeout parameter, the table~\ref{tab:ablation_timeout} shows that giving the solver more time increases its solution success rate. In a high-order sudoku like 25 $\times$ 25 grid, the solver was able to cover more area of the search space by setting the timeout to 180 seconds. Setting this parameter to a low value prematurely terminates the solver.
+
+
+\subsection{Ablation Study 2: Multi-Colony ACO Parameters}
+\begin{table}[H]
+    \centering
+    \caption{Summary of the impact of Multi-Colony ACO parameters on model performance across $9\times9$, $16\times16$, and $25\times25$ Sudoku Instances.}
+    \label{tab:ablation_multiColony}
+    \footnotesize
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}llccc ccc ccc@{}}
+        \toprule
+        \multicolumn{2}{c}{\textbf{Parameter}} & \multicolumn{3}{c}{\textbf{9 x 9}} & \multicolumn{3}{c}{\textbf{16 x 16}} & \multicolumn{3}{c}{\textbf{25 x 25}} \\
+        \cmidrule(lr){1-2} \cmidrule(lr){3-5} \cmidrule(lr){6-8} \cmidrule(lr){9-11}
+        Type & Value & Succ. & Time $\pm$ Std. (s) & Iter. & Succ. & Time $\pm$ Std. (s) & Iter. & Succ. & Time $\pm$ Std. (s) & Iter. \\
+        \midrule
+        \multirow{5}{*}{\textbf{numacs}} 
+        & 2  & 100 & 0.0728 $\pm$ 0.0713 & 72.66 & 100 & 0.0949 $\pm$ 0.1401 & 17.06 & 70 & 30.3826 $\pm$ 29.1306 & 1323.73 \\
+        & 3  & 100 & 0.0700 $\pm$ 0.0725 & 50.98 & 100 & 0.0865 $\pm$ 0.1521 & 11.56 & 88 & 30.3379 $\pm$ 31.5852 & 1147.38 \\
+        & 4  & 100 & 0.0717 $\pm$ 0.0661 & 39.96 & 100 & 0.0799 $\pm$ 0.1675 & 8.29  & 90 & 29.2983 $\pm$ 28.2633 & 879.39 \\
+        & 5  & 100 & 0.0749 $\pm$ 0.0912 & 32.82 & 100 & 0.0591 $\pm$ 0.0642 & 5.24  & 88 & 32.6556 $\pm$ 28.7553 & 813.34 \\
+        & 6  & 100 & 0.0713 $\pm$ 0.0647 & 29.95 & 100 & 0.0563 $\pm$ 0.0765 & 5.14  & \textbf{97} & 33.1706 $\pm$ 27.1861 & 621.20 \\
+        \midrule
+        \multirow{5}{*}{\textbf{convThreshold}} 
+        & 0.2  & 100 & 0.0594 $\pm$ 0.0574 & 64.65 & 100 & 0.1481 $\pm$ 0.4298 & 31.76 & 77 & 33.1252 $\pm$ 30.4278 & 1602.31 \\
+        & 0.4  & 100 & 0.0540 $\pm$ 0.0485 & 58.86 & 100 & 0.0801 $\pm$ 0.1024 & 16.42 & \textbf{78} & 38.5062 $\pm$ 32.4213 & 1349.08 \\
+        & 0.6  & 100 & 0.0594 $\pm$ 0.0538 & 64.55 & 100 & 0.0961 $\pm$ 0.1604 & 20.52 & 76 & 33.4068 $\pm$ 31.6571 & 1169.70 \\
+        & 0.8  & 100 & 0.0585 $\pm$ 0.0640 & 63.79 & 100 & 0.0985 $\pm$ 0.1432 & 21.09 & 76 & 30.8589 $\pm$ 25.7877 & 1241.83 \\
+        & 1    & 100 & 0.0591 $\pm$ 0.0504 & 64.21 & 100 & 0.0841 $\pm$ 0.1078 & 17.82 & 59 & 32.6644 $\pm$ 29.1400 & 1296.58 \\
+        \midrule
+        \multirow{5}{*}{\textbf{entropyThreshold}} 
+        & 1.25 & 100 & 0.0592 $\pm$ 0.0618 & 65.47 & 100 & 0.0947 $\pm$ 0.1289 & 20.30 & 74 & 27.9569 $\pm$ 30.9323 & 1088.70 \\
+        & 1.32 & 100 & 0.0567 $\pm$ 0.0568 & 62.15 & 100 & 0.1095 $\pm$ 0.1785 & 21.11 & 75 & 28.3375 $\pm$ 27.5673 & 936.63 \\
+        & 1.39 & 100 & 0.0595 $\pm$ 0.0646 & 65.13 & 100 & 0.1096 $\pm$ 0.2051 & 23.11 & \textbf{82} & 33.1949 $\pm$ 27.1036 & 1374.43 \\
+        & 1.47 & 100 & 0.0620 $\pm$ 0.0617 & 68.22 & 100 & 0.2245 $\pm$ 0.2332 & 47.01 & 78 & 27.1581 $\pm$ 23.0610 & 1081.74 \\
+        & 1.54 & 100 & 0.0661 $\pm$ 0.0615 & 72.92 & 100 & 0.2039 $\pm$ 0.7198 & 42.77 & 76 & 36.8694 $\pm$ 31.4284 & 1368.78 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+
+Table~\ref{tab:ablation_multiColony} shows that the more number of ACS colonies, the higher the success rate. This shows that more regions of the solution space are explored. Furthermore, setting the parameter ($con^*$) to 1 or to the smallest value makes the MMAS never receive any pheromone information from the ACS colonies, thus focusing only on exploration forever. By setting this parameter to 0.4, MMAS colony is given enough time to refine its distribution of pheromone to cell-value pairs. Lastly, entropy mathematically represents the diversity of the colony. Higher entropy means higher diversity, otherwise the colony is stagnating. By setting this parameter ($E^*(P)$) to 87.875\% of the Max entropy, ACS colonies are enabled to continue performing their strong exploitation behaviour. Setting this parameter to its maximum value triggers pheromone fusion thus making an excessive exploration. On the other hand, setting this parameter to a lower value delays the help of MMAS to ACS as it makes the ACS deeply stagnates before receiving pheromone information from the MMAS colony. 
+
+
+\subsection{Ablation Study 3: Multithread Parameters}
+\begin{table}[H]
+    \centering
+    \caption{Summary of the impact of Multithread Parameters on model performance across $9\times9$, $16\times16$, and $25\times25$ Sudoku Instances.}
+    \label{tab:ablation_multithread}
+    \footnotesize
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}llccc ccc ccc@{}}
+        \toprule
+        \multicolumn{2}{c}{\textbf{Parameter}} & \multicolumn{3}{c}{\textbf{9 x 9}} & \multicolumn{3}{c}{\textbf{16 x 16}} & \multicolumn{3}{c}{\textbf{25 x 25}} \\
+        \cmidrule(lr){1-2} \cmidrule(lr){3-5} \cmidrule(lr){6-8} \cmidrule(lr){9-11}
+        Type & Value & Succ. & Time $\pm$ Std. (s) & Iter. & Succ. & Time $\pm$ Std. (s) & Iter. & Succ. & Time $\pm$ Std. (s) & Iter. \\
+        \midrule
+        \multirow{5}{*}{\textbf{Threads}} 
+        & 1  & 100 & 0.1478 $\pm$ 0.1477 & 190.05 & 100 & 0.6944 $\pm$ 1.2084 & 154.58 & 40 & 33.9656 $\pm$ 34.3852 & 1891.55 \\
+        & 2  & 100 & 0.0804 $\pm$ 0.0875 & 95.44  & 100 & 0.5068 $\pm$ 2.0686 & 115.02 & 58 & 28.6843 $\pm$ 30.6527 & 1228.16 \\
+        & 3  & 100 & 0.0640 $\pm$ 0.0692 & 70.23  & 100 & 0.0769 $\pm$ 0.1034 & 16.13  & 83 & 29.5694 $\pm$ 30.4272 & 1468.30 \\
+        & 4  & 100 & 0.0402 $\pm$ 0.0426 & 41.37  & 100 & 0.0750 $\pm$ 0.1135 & 14.77  & 82 & 30.9202 $\pm$ 28.3030 & 1214.59 \\
+        & 5  & 100 & 0.0378 $\pm$ 0.0366 & 36.47  & 100 & 0.0447 $\pm$ 0.0470 & 8.26   & \textbf{92} & 25.7953 $\pm$ 26.4490 & 971.28 \\
+        \midrule
+        \multirow{5}{*}{\textbf{Comm-thresh}} 
+        & 100 & 100 & 0.0570 $\pm$ 0.0518 & 62.45 & 100 & 0.1074 $\pm$ 0.1816 & 22.84 & 74 & 25.3917 $\pm$ 20.8789 & 1095.61 \\
+        & 150 & 100 & 0.0610 $\pm$ 0.0527 & 66.97 & 100 & 0.0961 $\pm$ 0.1935 & 20.36 & 75 & 31.3976 $\pm$ 28.1724 & 1154.23 \\
+        & 200 & 100 & 0.0571 $\pm$ 0.0613 & 62.71 & 100 & 0.1044 $\pm$ 0.1795 & 22.35 & \textbf{83} & 31.5694 $\pm$ 30.5167 & 1472.30 \\
+        & 250 & 100 & 0.0621 $\pm$ 0.0725 & 68.51 & 100 & 0.1454 $\pm$ 0.2489 & 30.97 & 77 & 33.0179 $\pm$ 30.2680 & 1219.95 \\
+        & 300 & 100 & 0.0684 $\pm$ 0.0645 & 75.05 & 100 & 0.2357 $\pm$ 1.3089 & 50.18 & 74 & 29.0587 $\pm$ 27.1208 & 1066.81 \\
+        \midrule
+        \multirow{5}{*}{\textbf{Comm-early}} 
+        & 40  & 100 & 0.0608 $\pm$ 0.0661 & 64.82 & 100 & 0.2117 $\pm$ 0.8743 & 44.73 & 65 & 33.5497 $\pm$ 28.0459 & 1234.45 \\
+        & 60  & 100 & 0.0622 $\pm$ 0.0587 & 66.36 & 100 & 0.1431 $\pm$ 0.2668 & 30.57 & 68 & 33.9577 $\pm$ 30.5894 & 1249.56 \\
+        & 80  & 100 & 0.0643 $\pm$ 0.0639 & 68.24 & 100 & 0.1095 $\pm$ 0.1760 & 23.53 & 69 & 34.7104 $\pm$ 30.7084 & 1271.75 \\
+        & 100 & 100 & 0.0452 $\pm$ 0.0440 & 47.65 & 100 & 0.1938 $\pm$ 0.9708 & 41.57 & 72 & 36.7683 $\pm$ 34.0736 & 1323.88 \\
+        & 120 & 100 & 0.0634 $\pm$ 0.0719 & 67.22 & 100 & 0.1300 $\pm$ 0.4330 & 27.62 & \textbf{74} & 38.8456 $\pm$ 32.4935 & 1385.09 \\
+        \midrule
+        \multirow{5}{*}{\textbf{Comm-late}} 
+        & 5   & 100 & 0.0616 $\pm$ 0.0634 & 66.36 & 100 & 0.1007 $\pm$ 0.1874 & 21.70 & \textbf{79} & 28.6750 $\pm$ 25.6114 & 1050.25 \\
+        & 10  & 100 & 0.0645 $\pm$ 0.0734 & 68.27 & 100 & 0.1053 $\pm$ 0.1840 & 22.61 & 78 & 38.3769 $\pm$ 29.1049 & 1407.37 \\
+        & 15  & 100 & 0.0548 $\pm$ 0.0521 & 57.97 & 100 & 0.0912 $\pm$ 0.1652 & 19.52 & 74 & 33.2315 $\pm$ 31.8913 & 1327.71 \\
+        & 20  & 100 & 0.0670 $\pm$ 0.0651 & 70.27 & 100 & 0.0853 $\pm$ 0.1228 & 18.42 & 76 & 33.8551 $\pm$ 27.4173 & 1142.03 \\
+        & 25  & 100 & 0.0683 $\pm$ 0.0651 & 72.73 & 100 & 0.1258 $\pm$ 0.2639 & 27.08 & 67 & 35.2145 $\pm$ 31.6265 & 1282.29 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+
+For the multithread parameters, table~\ref{tab:ablation_multithread} that maximizing CPU cores allows faster execution time. The parameter `threads' controls the number of independent threads each running a multi-colony solver in parallel. Thus, more threads means more regions of the solution space are explored.
+
+The communication threshold parameter, `Comm-thresh', controls when to change the frequency of the communication between the threads. If the current iteration is less than the value of this parameter, the threads communicate at longer intervals. Otherwise, threads communicate at short intervals. By setting this to 200, threads have enough time to build their own solution without any external information. The parameter, `Comm-early' tells when does the thread communicate if the current iteration is still less than the communication threshold. Setting this to a lower value makes the thread receive and share information without enough time to refine its own solution. From this table, we can see that the value 120 gives the best performance because it gives threads enough time to build its promising solution before sharing it. Lastly, the parameter that controls when the thread communicates if the current iteration is more than the communication threshold is the `comm-early'. Take note that in late iteration, there are only a few empty cells and it is very constrained. Thus, frequent communication between threads is necessary to prevent redundant tries of the same cell-value pairs. 
+
+
+
+
+
+

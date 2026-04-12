@@ -1,0 +1,47 @@
+\contentsline {chapter}{Acknowledgements}{iv}{chapter*.1}%
+\contentsline {chapter}{Abstract}{v}{chapter*.2}%
+\contentsline {chapter}{Table of Contents}{vii}{chapter*.3}%
+\contentsline {chapter}{List of Tables}{viii}{section*.4}%
+\contentsline {chapter}{List of Figures}{ix}{section*.6}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Background of the Study}{3}{section.1.1}%
+\contentsline {subsubsection}{Deterministic Approach}{3}{section*.8}%
+\contentsline {subsubsection}{Heuristic Approaches}{3}{section*.10}%
+\contentsline {subsubsection}{Metaheuristic Approaches}{4}{section*.12}%
+\contentsline {subsubsection}{Parallel ACO}{5}{section*.14}%
+\contentsline {section}{\numberline {1.2}Problem Statement}{5}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Aim of the Work}{7}{section.1.3}%
+\contentsline {subsection}{General Objective}{7}{section*.18}%
+\contentsline {subsection}{Specific Objectives}{8}{section*.19}%
+\contentsline {subsection}{Scope and Limitations}{8}{section*.20}%
+\contentsline {subsection}{Significance of the Study}{9}{section*.21}%
+\contentsline {section}{\numberline {1.4}Theoretical and Conceptual Framework}{10}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Review of Related Literature}{12}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Methodology}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Dataset}{18}{section.3.1}%
+\contentsline {section}{\numberline {3.2}SudoSLVRR: Design and Structure}{19}{section.3.2}%
+\contentsline {subsection}{Constraint Propagation}{20}{section*.26}%
+\contentsline {subsection}{Initialization}{25}{section*.28}%
+\contentsline {subsection}{CP-DCM-ACO}{26}{section*.30}%
+\contentsline {subsection}{Ring and Random Communication Topologies}{45}{section*.53}%
+\contentsline {section}{\numberline {3.3}Model Deployment Details}{49}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Results and Discussion}{50}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Performance Evaluation Metrics}{50}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Implementation Details}{51}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Experimental Setups}{52}{section.4.3}%
+\contentsline {subsection}{Experiment 1: Ablation Study}{52}{section*.63}%
+\contentsline {subsection}{Experiment 2: Single-Thread Multi-Colony ACO vs Multithread Multi-Colony ACO}{52}{section*.64}%
+\contentsline {subsection}{Experiment 3: Without Thread Communication vs With Thread Communication}{52}{section*.65}%
+\contentsline {subsection}{Experiment 4: Multithreaded Multi-Colony ACO vs State-of-the-Art Sudoku Solver}{53}{section*.66}%
+\contentsline {subsection}{Experiment 5: Model Deployment}{53}{section*.67}%
+\contentsline {section}{\numberline {4.4}Results and Discussion}{54}{section.4.4}%
+\contentsline {subsection}{Experiment 1: Ablation Study}{54}{section*.69}%
+\contentsline {subsection}{Experiment 2: Single-Thread Multi-Colony ACO vs Multithread Multi-Colony ACO}{56}{section*.71}%
+\contentsline {chapter}{\numberline {5}Conclusions and Recommendations}{58}{chapter.5}%
+\contentsline {chapter}{Appendix A}{59}{appendix*.77}%
+\contentsline {section}{\numberline {A.1}Baseline Configuration}{59}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Ablation Study}{60}{section.A.2}%
+\contentsline {subsection}{Ablation Study 1: Core ACO Parameters}{60}{section*.79}%
+\contentsline {subsection}{Ablation Study 2: Multi-Colony ACO Parameters}{62}{section*.82}%
+\contentsline {subsection}{Ablation Study 3: Multithread Parameters}{63}{section*.84}%
+\contentsline {chapter}{References}{65}{table.caption.85}%

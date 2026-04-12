@@ -1,0 +1,235 @@
+\chapter{Results and Discussion}\label{chap:Results}
+
+\section{Performance Evaluation Metrics}
+
+This section outlines the performance metrics used to evaluate the proposed framework. This evaluation is designed to verify that the proposed model gives a result that is better than the base model and other existing sudoku solvers. The mentioned performance indicators are the following:
+
+\subsection*{Success Rate (SR)}
+        \begin{equation}
+        SR = \left( \frac{N_{success}}{N_{total}} \right) \times 100\%
+        \end{equation}
+        where $N_{total}$ is 100 unique general puzzles. A higher Success Rate means the solver is able to solve more sudoku puzzles thus better at searching the search space for a solution.    
+
+\subsection*{Mean Time to Solution (MTTS)}
+        The average time to generate a solution is an essential performance metric to determine the computational efficiency of the solver. 
+        \begin{equation}
+        MTTS = \frac{1}{N_{success}} \sum_{i=1}^{N_{success}} T_i
+        \end{equation}
+        where $T_i$ is the runtime of the $i$-th successful trial. 
+
+\subsection*{Standard Deviation (Std)}
+        As the ACO is stochastic, it may solve the puzzles in different runtime. This metric is used to determine how stable the solver is. 
+        \begin{equation}
+        Std = \sqrt{\frac{1}{N_{success}} \sum_{i=1}^{N_{success}} (T_i - MTTS)^2}
+        \end{equation}
+        A lower Standard Deviation show that the solver is able to solve the puzzle in similar timeframe. 
+
+\subsection*{Iterations to Solve}
+
+        This metric is used to count the number of iterations the solver took to generate a valid solution($f_{best} = \text{Total Cells}$). A lower value of this metric shows that the solver has the best balance between exploration and exploitation. 
+
+\section{Implementation Details}
+
+\begin{table}[H]
+    \caption{Machine specifications}
+    \centering
+    \renewcommand{\arraystretch}{1.2} 
+    \setlength{\tabcolsep}{10pt} 
+    \begin{tabular}{|l|l|}
+    \hline
+    \textbf{Component}          & \textbf{Specification}                                \\ \hline
+    Processor                   & AMD Ryzen 5 7530U (6 Cores, 12 Threads) @ 2.00 GHz    \\ \hline
+    RAM                         & 16.0 GB                                               \\ \hline
+    \end{tabular}
+    \label{tab:machine_specifications}
+\end{table}
+
+As shown in Table~\ref{tab:machine_specifications}, the multi-threaded multi-colony ACO was implemented on a machine that is equipped with an AMD Ryzen 5 7530U processor which contains 6 physical cores and 12 threads. SudoSLVRR was able to execute the experiments as the machine is supported with 12 logical processors that allows the concurrent execution of multiple threads. The implementation of the solver is written in C++ which is known for its performance when it comes to multithreading capabilities. 
+
+\section{Experimental Setups}
+The experimental setup contains different sequence of experiments targeting specific objectives of this study. 
+
+
+\subsection{Experiment 1: Ablation Study}
+        This experiment evaluates the impact of individual parameters to the model's performance. This experiment addresses the second objective of this study allowing the proposed model to be fine-tuned. 
+
+\subsection{Experiment 2: Single-Thread Multi-Colony ACO vs Multithread Multi-Colony ACO} 
+	This experiment compares the performance of between single thread and multithread solvers. This highlights the impact of parallelization on the solver’s performance when solving sudoku puzzles. It is important to note that parallelization in this experiment involves collaboration with other threads. 
+
+\subsection{Experiment 3: Without Thread Communication vs With Thread Communication}
+        This experiment evaluates the necessity of information exchange between parallel threads. This, also, compares the performance of parallel independent runs against topology-aware and communicating threads. Communication topologies used in this experiment are ring and random communication topologies. 
+
+\subsection{Experiment 4: Multithreaded Multi-Colony ACO vs State-of-the-Art Sudoku Solver}
+        This experiment compares the performance of the proposed multithreaded multi-colony ACO solver against state-of-the-art sudoku solvers. This shows the robustness of the solver especially for high-order sudoku puzzle like $25 \times 25$.  
+
+\subsection{Experiment 5: Model Deployment}
+	This experiment addresses the last objective of this study which is to deploy the proposed solver as a functional web-based application. The deployment was implemented using Python Flask framework to manage both backend and frontend services and C++ for the implementation of the proposed solver. 
+	The user of the web-based application should be able to choose a puzzle instance from a predefined list, create their own, or upload a text file given that it follows a specific format. Furthermore, the user should be able to adjust parameters before solving the puzzle. The application solves the inputted puzzle and displays the output puzzle in the interface as shown in Figure~\ref{web-app}.  
+
+        \begin{figure}[H]
+                \includegraphics[width=\linewidth]{../figures/SudoSLVRR_Web.png} 
+                \captionof{figure}{SudoSLVRR web-based application} 
+                \label{web-app} 
+        \end{figure}
+
+\section{Results and Discussion}
+\subsection{Experiment 1: Ablation Study}
+        The final configuration for the proposed model, Multithread Multi-colony ACO Solver, was obtained through a series of experiment. Five different values for each 13 parameters are tried and observed its impact to the solver's perfomance. This was done by adjusting only one parameter at a time while holding other parameters constant at their baseline configuration (See Table~\ref{tab:baseline_parameters}). This experiment gave the best value for each parameter allowing the solver to maximize its potential in navigating a very complex solution space, especially of a large-scale $25 \times 25$ Sudoku. Table~\ref{tab:best_parameters} shows the summary of the best configuration of parameters for the proposed model. 
+        \begin{table}[H]
+                \caption{Best Configuration of Multithread Multi-colony ACO}
+                \centering
+                \renewcommand{\arraystretch}{1.2} 
+                \setlength{\tabcolsep}{10pt} 
+                \begin{tabular}{|l|l|}
+                \hline
+                \textbf{Parameter}                          & \textbf{Baseline Value}                               \\ \hline
+                $q_0$ (Exploitation Factor)                 & 0.9                                        \\ \hline
+                $\xi$ (Local Pheromone Update)              & 0.1                                         \\ \hline
+                $\rho_0$ (Pheromone Persistence)            & 0.99                                        \\ \hline
+                $\rho_{BVE}$ (Best Pheromone Evaporation)   & 0.0125                                                                            \\ \hline
+                Number of ACS colonies                      & 6                                          \\ \hline
+                Number of Ants (Per Colony)                 & 3                                           \\ \hline
+                Entropy Threshold                           & 87.875\% of the Max Entropy (1.39)                              \\ \hline
+                Convergence Threshold                     & 0.4                                                      \\ \hline
+                Thread Count                                & 5                                         \\ \hline
+                Communication Threshold                     & 200 iterations                             \\ \hline
+                Early Communication Interval                & 120 iterations                           \\ \hline
+                Late Communication Interval                 & 5 iterations                              \\ \hline
+                \textbf{Timeouts}                           &                                                       \\ \hline
+                $9 \times 9$ Sudoku                         & 9 seconds                                             \\ \hline
+                $16 \times 16$ Sudoku                       & 30 seconds                                            \\ \hline
+                $25 \times 25$ Sudoku                       & 180 seconds \\ \hline
+                \end{tabular}
+                \label{tab:best_parameters}
+                \end{table}
+        Tables~\ref{tab:ablation_coreACO_summary},~\ref{tab:ablation_timeout},~\ref{tab:ablation_multiColony}, and~\ref{tab:ablation_multithread} show the detailed results from the conducted ablation study. This contains the results of each parameter value accross three different puzzle sizes. 
+
+\subsection{Experiment 2: Single-Thread Multi-Colony ACO vs Multithread Multi-Colony ACO} 
+
+\begin{table}[H]
+    \centering
+    \caption{Performance Comparison of CP-DCM-ACO vs. MT-CP-DCM-ACO on $9 \times 9$ Sudoku Instances (100 Puzzles, 5 Trial Runs).}
+    \label{tab:exp2_9x9_comparison}
+    \footnotesize
+    \begin{tabular}{@{}llccc@{}}
+        \toprule
+        \textbf{Solver} & \textbf{Metric} & \textbf{Best} & \textbf{Worst} & \textbf{Average} \\
+        \midrule
+        \multirow{3}{*}{\textbf{CP-DCM-ACO}} & Success Rate (\%) & 100 & 100 & 100 \\
+                                             & Time (s) & $0.0667 \pm 0.0683$ & $0.1037 \pm 0.1064$ & $0.0830 \pm 0.0835$ \\
+                                             & Iteration & 39.54 & 61.98 & 50.07 \\
+        \midrule
+        \multirow{3}{*}{\textbf{MT-CP-DCM-ACO}} & Success Rate (\%) & 100 & 100 & 100 \\
+                                                & Time (s) & \boldmath{$0.0279 \pm 0.0258$} & \boldmath{$0.0315 \pm 0.0304$} & \boldmath{$0.0295 \pm 0.0290$} \\
+                                                & Iteration & \textbf{11.23} & \textbf{12.29} & \textbf{11.68} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Performance Comparison of CP-DCM-ACO vs. MT-CP-DCM-ACO on $16 \times 16$ Sudoku Instances (100 Puzzles, 5 Trial Runs).}
+    \label{tab:exp2_16x16_comparison}
+    \footnotesize
+    \begin{tabular}{@{}llccc@{}}
+        \toprule
+        \textbf{Solver} & \textbf{Metric} & \textbf{Best} & \textbf{Worst} & \textbf{Average} \\
+        \midrule
+        \multirow{3}{*}{\textbf{CP-DCM-ACO}} & Success Rate (\%) & 100 & 100 & 100 \\
+                                             & Time (s) & $0.0549 \pm 0.0900$ & $0.1294 \pm 0.3873$ & $0.0835 \pm 0.1928$ \\
+                                             & Iteration & 6.23 & 14.48 & 9.33 \\
+        \midrule
+        \multirow{3}{*}{\textbf{MT-CP-DCM-ACO}} & Success Rate (\%) & 100 & 100 & 100 \\
+                                                & Time (s) & \boldmath{$0.0397 \pm 0.0230$} & \boldmath{$0.0535 \pm 0.1346$} & \boldmath{$0.0459 \pm 0.0617$} \\
+                                                & Iteration & \textbf{3.03} & \textbf{3.93} & \textbf{3.46} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Performance Comparison of CP-DCM-ACO vs. MT-CP-DCM-ACO on $25 \times 25$ Sudoku Instances (100 Puzzles, 5 Trial Runs).}
+    \label{tab:exp2_25x25_comparison}
+    \footnotesize
+    \begin{tabular}{@{}llccc@{}}
+        \toprule
+        \textbf{Solver} & \textbf{Metric} & \textbf{Best} & \textbf{Worst} & \textbf{Average} \\
+        \midrule
+        \multirow{3}{*}{\textbf{CP-DCM-ACO}} & Success Rate (\%) & 100 & 98 & 99 \\
+                                             & Time (s) & $5.3496 \pm 6.5340$ & $7.5980 \pm 18.7057$ & $6.3411 \pm 10.4774$ \\
+                                             & Iteration & 124.67 & 178.43 & 149.13 \\
+        \midrule
+        \multirow{3}{*}{\textbf{MT-CP-DCM-ACO}} & Success Rate (\%) & 100 & \textbf{100} & \textbf{100} \\
+                                                & Time (s) & \boldmath{$3.9575 \pm 5.4078$} & $6.1483 \pm 10.0960$ & $5.4813 \pm 7.4532$ \\
+                                                & Iteration & \textbf{42.29} & 53.17 & 49.24 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    % --- Graph 1: Execution Time ---
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=0.48\textwidth,
+            title={Average Execution Time},
+            xlabel={Grid Size},
+            ylabel={Time (s)},
+            symbolic x coords={9x9, 16x16, 25x25},
+            xtick=data,
+            legend pos=north west,
+            grid=major,
+            grid style={dashed,gray!30},
+        ]
+            \addplot[color=blue, mark=o, thick] coordinates {(9x9,0.0830) (16x16,0.0835) (25x25,6.3411)};
+            \addplot[color=red, mark=square, thick] coordinates {(9x9,0.0295) (16x16,0.0459) (25x25,5.4813)};
+            \legend{CP-DCM-ACO, MT-CP-DCM-ACO}
+        \end{axis}
+    \end{tikzpicture}
+    \hfill
+    % --- Graph 2: Iteration Count ---
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=0.48\textwidth,
+            title={Average Iterations},
+            xlabel={Grid Size},
+            ylabel={Iterations},
+            symbolic x coords={9x9, 16x16, 25x25},
+            xtick=data,
+            legend pos=north east,
+            grid=major,
+            grid style={dashed,gray!30},
+        ]
+            \addplot[color=blue, mark=o, thick] coordinates {(9x9,50.07) (16x16,9.33) (25x25,149.13)};
+            \addplot[color=red, mark=square, thick] coordinates {(9x9,11.68) (16x16,3.46) (25x25,49.24)};
+            \legend{CP-DCM-ACO, MT-CP-DCM-ACO}
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Comparison of computational efficiency between CP-DCM-ACO and MT-CP-DCM-ACO across grid sizes.}
+    \label{fig:performance_comparison}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % --- Graph 3: Success Rate ---
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=0.6\textwidth,
+            title={Success Rate Comparison},
+            xlabel={Grid Size},
+            ylabel={Success Rate (\%)},
+            symbolic x coords={9x9, 16x16, 25x25},
+            xtick=data,
+            ymin=97, ymax=101, % Zoomed to highlight the 25x25 difference
+            legend pos=south west,
+            grid=major,
+            grid style={dashed,gray!30},
+        ]
+            \addplot[color=blue, mark=o, thick] coordinates {(9x9,100) (16x16,100) (25x25,99)};
+            \addplot[color=red, mark=square, thick] coordinates {(9x9,100) (16x16,100) (25x25,100)};
+            \legend{CP-DCM-ACO, MT-CP-DCM-ACO}
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Impact of multithreading on solver reliability for high-dimensional Sudoku ($25 \times 25$).}
+    \label{fig:success_rate_comparison}
+\end{figure}

@@ -1,0 +1,76 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis.aux
+Reallocating 'name_of_file' (item size: 1) to 12 items.
+A level-1 auxiliary file: acknowl.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: abstract.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: chapter1.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: chapter2.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: chapter3.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: chapter4.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: chapter5.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: appendix.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: IEEEtran.bst
+Reallocating 'name_of_file' (item size: 1) to 7 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Database file #1: biblio.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty booktitle in Baydogmus
+
+Done.
+You've used 29 entries,
+            4087 wiz_defined-function locations,
+            1012 strings with 12233 characters,
+and the built_in function-call counts, 20530 in all, are:
+= -- 1683
+> -- 385
+< -- 172
++ -- 217
+- -- 59
+* -- 944
+:= -- 3125
+add.period$ -- 65
+call.type$ -- 29
+change.case$ -- 28
+chr.to.int$ -- 396
+cite$ -- 30
+duplicate$ -- 1507
+empty$ -- 1749
+format.name$ -- 76
+if$ -- 4815
+int.to.chr$ -- 0
+int.to.str$ -- 29
+missing$ -- 243
+newline$ -- 114
+num.names$ -- 29
+pop$ -- 553
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 1622
+stack$ -- 0
+substring$ -- 970
+swap$ -- 1184
+text.length$ -- 40
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 29
+warning$ -- 1
+while$ -- 99
+width$ -- 31
+write$ -- 298
+(There was 1 warning)
