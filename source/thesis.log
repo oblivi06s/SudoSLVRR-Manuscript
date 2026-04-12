@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.11)  12 APR 2026 17:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.11)  12 APR 2026 23:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1403,43 +1403,43 @@ Chapter 1.
 
 
 ] [2]
-<../figures/Backtrack_Back.png, id=419, 1054.94125pt x 154.5775pt>
+<../figures/Backtrack_Back.png, id=439, 1054.94125pt x 154.5775pt>
 File: ../figures/Backtrack_Back.png Graphic file (type png)
 <use ../figures/Backtrack_Back.png>
 Package pdftex.def Info: ../figures/Backtrack_Back.png  used on input line 17.
 (pdftex.def)             Requested size: 433.62pt x 63.5352pt.
  [3 <../figures/Backtrack_Back.png>]
-<../figures/Hueristic_Back.png, id=436, 1034.86626pt x 157.58875pt>
+<../figures/Hueristic_Back.png, id=456, 1034.86626pt x 157.58875pt>
 File: ../figures/Hueristic_Back.png Graphic file (type png)
 <use ../figures/Hueristic_Back.png>
 Package pdftex.def Info: ../figures/Hueristic_Back.png  used on input line 26.
 (pdftex.def)             Requested size: 433.62pt x 66.03052pt.
-<../figures/Swarm_Back.png, id=441, 905.3825pt x 151.56625pt>
+<../figures/Swarm_Back.png, id=461, 905.3825pt x 151.56625pt>
 File: ../figures/Swarm_Back.png Graphic file (type png)
 <use ../figures/Swarm_Back.png>
 Package pdftex.def Info: ../figures/Swarm_Back.png  used on input line 36.
 (pdftex.def)             Requested size: 433.62pt x 72.58908pt.
  [4 <../figures/Hueristic_Back.png> <../figures/Swarm_Back.png>]
-<../figures/ParallelACO_Back.png, id=455, 1245.65375pt x 386.44376pt>
+<../figures/ParallelACO_Back.png, id=475, 1245.65375pt x 386.44376pt>
 File: ../figures/ParallelACO_Back.png Graphic file (type png)
 <use ../figures/ParallelACO_Back.png>
 Package pdftex.def Info: ../figures/ParallelACO_Back.png  used on input line 45
 .
 (pdftex.def)             Requested size: 433.62pt x 134.52615pt.
  [5 <../figures/ParallelACO_Back.png>]
-<../figures/CP-ACS.png, id=468, 925.4575pt x 121.45375pt>
+<../figures/CP-ACS.png, id=488, 925.4575pt x 121.45375pt>
 File: ../figures/CP-ACS.png Graphic file (type png)
 <use ../figures/CP-ACS.png>
 Package pdftex.def Info: ../figures/CP-ACS.png  used on input line 56.
 (pdftex.def)             Requested size: 433.62pt x 56.9072pt.
-<../figures/Proposed Solver SOP.png, id=473, 673.51625pt x 166.6225pt>
+<../figures/Proposed Solver SOP.png, id=493, 673.51625pt x 166.6225pt>
 File: ../figures/Proposed Solver SOP.png Graphic file (type png)
 <use ../figures/Proposed Solver SOP.png>
 Package pdftex.def Info: ../figures/Proposed Solver SOP.png  used on input line
  66.
 (pdftex.def)             Requested size: 433.62pt x 107.27618pt.
  [6 <../figures/CP-ACS.png>] [7 <../figures/Proposed Solver SOP.png>] [8] [9]
-<../figures/Theoretical and Conceptual Framework.png, id=499, 855.195pt x 432.6
+<../figures/Theoretical and Conceptual Framework.png, id=519, 855.195pt x 432.6
 1626pt>
 File: ../figures/Theoretical and Conceptual Framework.png Graphic file (type pn
 g)
@@ -1466,7 +1466,7 @@ Chapter 2.
 
 
 ] [13]
-<../figures/DCM-ACO-RRL.png, id=552, 1175.39125pt x 150.5625pt>
+<../figures/DCM-ACO-RRL.png, id=572, 1175.39125pt x 150.5625pt>
 File: ../figures/DCM-ACO-RRL.png Graphic file (type png)
 <use ../figures/DCM-ACO-RRL.png>
 Package pdftex.def Info: ../figures/DCM-ACO-RRL.png  used on input line 14.
@@ -1478,7 +1478,7 @@ Package pdftex.def Info: ../figures/DCM-ACO-RRL.png  used on input line 14.
 
 (chapter3.tex
 Chapter 3.
-<../figures/General Overview.png, id=573, 1407.2575pt x 518.93875pt>
+<../figures/General Overview.png, id=593, 1407.2575pt x 518.93875pt>
 File: ../figures/General Overview.png Graphic file (type png)
 <use ../figures/General Overview.png>
 Package pdftex.def Info: ../figures/General Overview.png  used on input line 4.
@@ -1495,25 +1495,25 @@ See the caption package documentation for explanation.
 
 
  <../figures/General Overview.png>]
-<../figures/Dataset.png, id=581, 1231.60126pt x 508.90125pt>
+<../figures/Dataset.png, id=601, 1231.60126pt x 508.90125pt>
 File: ../figures/Dataset.png Graphic file (type png)
 <use ../figures/Dataset.png>
 Package pdftex.def Info: ../figures/Dataset.png  used on input line 17.
 (pdftex.def)             Requested size: 433.62pt x 179.1664pt.
  [18 <../figures/Dataset.png>]
-<../figures/inputFile.png, id=588, 765.86125pt x 283.0575pt>
+<../figures/inputFile.png, id=608, 765.86125pt x 283.0575pt>
 File: ../figures/inputFile.png Graphic file (type png)
 <use ../figures/inputFile.png>
 Package pdftex.def Info: ../figures/inputFile.png  used on input line 40.
 (pdftex.def)             Requested size: 433.62pt x 160.26466pt.
  [19 <../figures/inputFile.png>]
-<../figures/ValueSet.png, id=597, 653.44125pt x 274.02374pt>
+<../figures/ValueSet.png, id=617, 653.44125pt x 274.02374pt>
 File: ../figures/ValueSet.png Graphic file (type png)
 <use ../figures/ValueSet.png>
 Package pdftex.def Info: ../figures/ValueSet.png  used on input line 59.
 (pdftex.def)             Requested size: 433.62pt x 181.83882pt.
  [20]
-<../figures/CP Rule 1 a.png, id=607, 858.20625pt x 550.055pt>
+<../figures/CP Rule 1 a.png, id=627, 858.20625pt x 550.055pt>
 File: ../figures/CP Rule 1 a.png Graphic file (type png)
 <use ../figures/CP Rule 1 a.png>
 Package pdftex.def Info: ../figures/CP Rule 1 a.png  used on input line 69.
@@ -1524,7 +1524,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 70.
 See the caption package documentation for explanation.
 
-<../figures/CP Rule 1 b.png, id=608, 763.85374pt x 533.995pt>
+<../figures/CP Rule 1 b.png, id=628, 763.85374pt x 533.995pt>
 File: ../figures/CP Rule 1 b.png Graphic file (type png)
 <use ../figures/CP Rule 1 b.png>
 Package pdftex.def Info: ../figures/CP Rule 1 b.png  used on input line 75.
@@ -1536,7 +1536,7 @@ See the caption package documentation for explanation.
 
 [21 <../figures/ValueSet.png>] [22 <../figures/CP Rule 1 a.png> <../figures/CP 
 Rule 1 b.png>]
-<../figures/CP Rule 2 a.png, id=621, 845.1575pt x 598.235pt>
+<../figures/CP Rule 2 a.png, id=641, 845.1575pt x 598.235pt>
 File: ../figures/CP Rule 2 a.png Graphic file (type png)
 <use ../figures/CP Rule 2 a.png>
 Package pdftex.def Info: ../figures/CP Rule 2 a.png  used on input line 86.
@@ -1547,7 +1547,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 87.
 See the caption package documentation for explanation.
 
-<../figures/CP Rule 2 b.png, id=622, 890.32625pt x 673.51625pt>
+<../figures/CP Rule 2 b.png, id=642, 890.32625pt x 673.51625pt>
 File: ../figures/CP Rule 2 b.png Graphic file (type png)
 <use ../figures/CP Rule 2 b.png>
 Package pdftex.def Info: ../figures/CP Rule 2 b.png  used on input line 92.
@@ -1558,7 +1558,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [23 <../figures/CP Rule 2 a.png> <../figures/CP Rule 2 b.png>]
-<../figures/CP Result.png, id=631, 843.15pt x 348.30125pt>
+<../figures/CP Result.png, id=651, 843.15pt x 348.30125pt>
 File: ../figures/CP Result.png Graphic file (type png)
 <use ../figures/CP Result.png>
 Package pdftex.def Info: ../figures/CP Result.png  used on input line 103.
@@ -1576,20 +1576,20 @@ ds setup and its num-ber. Threads
  []
 
 [25]
-<../figures/PherMatrixInit.png, id=648, 1044.90375pt x 364.36125pt>
+<../figures/PherMatrixInit.png, id=668, 1044.90375pt x 364.36125pt>
 File: ../figures/PherMatrixInit.png Graphic file (type png)
 <use ../figures/PherMatrixInit.png>
 Package pdftex.def Info: ../figures/PherMatrixInit.png  used on input line 128.
 
 (pdftex.def)             Requested size: 390.25534pt x 136.08472pt.
  [26 <../figures/PherMatrixInit.png>]
-<../figures/Ants start.png, id=659, 1033.8625pt x 402.50375pt>
+<../figures/Ants start.png, id=679, 1033.8625pt x 402.50375pt>
 File: ../figures/Ants start.png Graphic file (type png)
 <use ../figures/Ants start.png>
 Package pdftex.def Info: ../figures/Ants start.png  used on input line 142.
 (pdftex.def)             Requested size: 390.25534pt x 151.93349pt.
  [27 <../figures/Ants start.png>]
-<../figures/Greedy Selection.png, id=670, 763.85374pt x 553.06625pt>
+<../figures/Greedy Selection.png, id=690, 763.85374pt x 553.06625pt>
 File: ../figures/Greedy Selection.png Graphic file (type png)
 <use ../figures/Greedy Selection.png>
 Package pdftex.def Info: ../figures/Greedy Selection.png  used on input line 16
@@ -1601,7 +1601,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 163.
 See the caption package documentation for explanation.
 
-<../figures/Probabilities.png, id=671, 755.82375pt x 466.74374pt>
+<../figures/Probabilities.png, id=691, 755.82375pt x 466.74374pt>
 File: ../figures/Probabilities.png Graphic file (type png)
 <use ../figures/Probabilities.png>
 Package pdftex.def Info: ../figures/Probabilities.png  used on input line 168.
@@ -1618,7 +1618,7 @@ pheromone evap-o-ra-tion co-ef-fi-cient, and $\OML/cmm/m/it/12 ^^\[]$ \OT1/cmr/
 m/n/12 is the ini-tial pheromone
  []
 
-<../figures/CP in ACS Rule 1 a.png, id=690, 825.0825pt x 727.71875pt>
+<../figures/CP in ACS Rule 1 a.png, id=710, 825.0825pt x 727.71875pt>
 File: ../figures/CP in ACS Rule 1 a.png Graphic file (type png)
 <use ../figures/CP in ACS Rule 1 a.png>
 Package pdftex.def Info: ../figures/CP in ACS Rule 1 a.png  used on input line 
@@ -1629,7 +1629,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 199.
 See the caption package documentation for explanation.
 
-<../figures/CP in ACS Rule 1 b.png, id=691, 719.68875pt x 700.6175pt>
+<../figures/CP in ACS Rule 1 b.png, id=711, 719.68875pt x 700.6175pt>
 File: ../figures/CP in ACS Rule 1 b.png Graphic file (type png)
 <use ../figures/CP in ACS Rule 1 b.png>
 Package pdftex.def Info: ../figures/CP in ACS Rule 1 b.png  used on input line 
@@ -1641,7 +1641,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [30 <../figures/CP in ACS Rule 1 a.png>]
-<../figures/CP in ACS Rule 2 a.png, id=698, 905.3825pt x 790.955pt>
+<../figures/CP in ACS Rule 2 a.png, id=718, 905.3825pt x 790.955pt>
 File: ../figures/CP in ACS Rule 2 a.png Graphic file (type png)
 <use ../figures/CP in ACS Rule 2 a.png>
 Package pdftex.def Info: ../figures/CP in ACS Rule 2 a.png  used on input line 
@@ -1654,7 +1654,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [31 <../figures/CP in ACS Rule 1 b.png> <../figures/CP in ACS Rule 2 a.png>]
-<../figures/CP in ACS Rule 2 b.png, id=705, 976.64874pt x 808.01875pt>
+<../figures/CP in ACS Rule 2 b.png, id=725, 976.64874pt x 808.01875pt>
 File: ../figures/CP in ACS Rule 2 b.png Graphic file (type png)
 <use ../figures/CP in ACS Rule 2 b.png>
 Package pdftex.def Info: ../figures/CP in ACS Rule 2 b.png  used on input line 
@@ -1666,32 +1666,32 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 220.
 See the caption package documentation for explanation.
 
-<../figures/Local Update.png, id=706, 1617.04124pt x 568.1225pt>
+<../figures/Local Update.png, id=726, 1617.04124pt x 568.1225pt>
 File: ../figures/Local Update.png Graphic file (type png)
 <use ../figures/Local Update.png>
 Package pdftex.def Info: ../figures/Local Update.png  used on input line 225.
 (pdftex.def)             Requested size: 390.25534pt x 137.10637pt.
 [32 <../figures/CP in ACS Rule 2 b.png> <../figures/Local Update.png>]
-<../figures/Finding Best Ant.png, id=714, 1037.8775pt x 448.67625pt>
+<../figures/Finding Best Ant.png, id=734, 1037.8775pt x 448.67625pt>
 File: ../figures/Finding Best Ant.png Graphic file (type png)
 <use ../figures/Finding Best Ant.png>
 Package pdftex.def Info: ../figures/Finding Best Ant.png  used on input line 23
 4.
 (pdftex.def)             Requested size: 433.62pt x 187.45688pt.
  [33 <../figures/Finding Best Ant.png>]
-<../figures/Global Update.png, id=727, 1265.72874pt x 634.37pt>
+<../figures/Global Update.png, id=747, 1265.72874pt x 634.37pt>
 File: ../figures/Global Update.png Graphic file (type png)
 <use ../figures/Global Update.png>
 Package pdftex.def Info: ../figures/Global Update.png  used on input line 270.
 (pdftex.def)             Requested size: 390.25534pt x 195.58789pt.
  [34]
-<../figures/BVE.png, id=736, 1235.61626pt x 495.8525pt>
+<../figures/BVE.png, id=756, 1235.61626pt x 495.8525pt>
 File: ../figures/BVE.png Graphic file (type png)
 <use ../figures/BVE.png>
 Package pdftex.def Info: ../figures/BVE.png  used on input line 287.
 (pdftex.def)             Requested size: 390.25534pt x 156.61049pt.
  [35 <../figures/Global Update.png>]
-<../figures/MMAS Difference.png, id=745, 895.345pt x 406.51875pt>
+<../figures/MMAS Difference.png, id=765, 895.345pt x 406.51875pt>
 File: ../figures/MMAS Difference.png Graphic file (type png)
 <use ../figures/MMAS Difference.png>
 Package pdftex.def Info: ../figures/MMAS Difference.png  used on input line 296
@@ -1699,37 +1699,37 @@ Package pdftex.def Info: ../figures/MMAS Difference.png  used on input line 296
 (pdftex.def)             Requested size: 390.25534pt x 177.19398pt.
 
 [36 <../figures/BVE.png>]
-<../figures/MMAS Limits.png, id=754, 1165.35374pt x 600.2425pt>
+<../figures/MMAS Limits.png, id=774, 1165.35374pt x 600.2425pt>
 File: ../figures/MMAS Limits.png Graphic file (type png)
 <use ../figures/MMAS Limits.png>
 Package pdftex.def Info: ../figures/MMAS Limits.png  used on input line 315.
 (pdftex.def)             Requested size: 390.25534pt x 201.00233pt.
  [37 <../figures/MMAS Difference.png>]
-<../figures/DCM-ACO.png, id=764, 764.8575pt x 704.6325pt>
+<../figures/DCM-ACO.png, id=784, 764.8575pt x 704.6325pt>
 File: ../figures/DCM-ACO.png Graphic file (type png)
 <use ../figures/DCM-ACO.png>
 Package pdftex.def Info: ../figures/DCM-ACO.png  used on input line 326.
 (pdftex.def)             Requested size: 390.25534pt x 359.52986pt.
  [38 <../figures/MMAS Limits.png>] [39 <../figures/DCM-ACO.png>] [40]
-<../figures/Coop Game.png, id=788, 1255.69125pt x 471.7625pt>
+<../figures/Coop Game.png, id=808, 1255.69125pt x 471.7625pt>
 File: ../figures/Coop Game.png Graphic file (type png)
 <use ../figures/Coop Game.png>
 Package pdftex.def Info: ../figures/Coop Game.png  used on input line 369.
 (pdftex.def)             Requested size: 390.25534pt x 146.61198pt.
-<../figures/Coop Game Result.png, id=790, 1335.99126pt x 663.47874pt>
+<../figures/Coop Game Result.png, id=810, 1335.99126pt x 663.47874pt>
 File: ../figures/Coop Game Result.png Graphic file (type png)
 <use ../figures/Coop Game Result.png>
 Package pdftex.def Info: ../figures/Coop Game Result.png  used on input line 38
 1.
 (pdftex.def)             Requested size: 433.62pt x 215.34456pt.
  [41 <../figures/Coop Game.png>] [42 <../figures/Coop Game Result.png>]
-<../figures/Pher Fusion.png, id=807, 1237.62375pt x 543.02875pt>
+<../figures/Pher Fusion.png, id=827, 1237.62375pt x 543.02875pt>
 File: ../figures/Pher Fusion.png Graphic file (type png)
 <use ../figures/Pher Fusion.png>
 Package pdftex.def Info: ../figures/Pher Fusion.png  used on input line 407.
 (pdftex.def)             Requested size: 390.25534pt x 171.22896pt.
  [43 <../figures/Pher Fusion.png>] [44]
-<../figures/Public Path.png, id=825, 1297.84875pt x 592.2125pt>
+<../figures/Public Path.png, id=845, 1297.84875pt x 592.2125pt>
 File: ../figures/Public Path.png Graphic file (type png)
 <use ../figures/Public Path.png>
 Package pdftex.def Info: ../figures/Public Path.png  used on input line 439.
@@ -1740,20 +1740,20 @@ Overfull \hbox (4.30908pt too wide) in paragraph at lines 457--458
  found in $[][][(\OML/cmm/m/it/12 i \OMS/cmsy/m/n/12 ^^@
  []
 
-<../figures/Topologies.png, id=834, 685.56125pt x 211.79124pt>
+<../figures/Topologies.png, id=854, 685.56125pt x 211.79124pt>
 File: ../figures/Topologies.png Graphic file (type png)
 <use ../figures/Topologies.png>
 Package pdftex.def Info: ../figures/Topologies.png  used on input line 463.
 (pdftex.def)             Requested size: 433.62pt x 133.9624pt.
 [46] [47 <../figures/Topologies.png>]
-<../figures/Threads Result.png, id=850, 1175.39125pt x 470.75874pt>
+<../figures/Threads Result.png, id=870, 1175.39125pt x 470.75874pt>
 File: ../figures/Threads Result.png Graphic file (type png)
 <use ../figures/Threads Result.png>
 Package pdftex.def Info: ../figures/Threads Result.png  used on input line 487.
 
 (pdftex.def)             Requested size: 390.25534pt x 156.29904pt.
  [48 <../figures/Threads Result.png>]
-<../figures/SudoSoLVRR.png, id=861, 1115.16624pt x 366.36874pt>
+<../figures/SudoSoLVRR.png, id=881, 1115.16624pt x 366.36874pt>
 File: ../figures/SudoSoLVRR.png Graphic file (type png)
 <use ../figures/SudoSoLVRR.png>
 Package pdftex.def Info: ../figures/SudoSoLVRR.png  used on input line 503.
@@ -1778,46 +1778,65 @@ Thread
  []
 
 [52]
-<../figures/SudoSLVRR_Web.png, id=890, 1132.23pt x 614.89725pt>
+<../figures/SudoSLVRR_Web.png, id=910, 1132.23pt x 614.89725pt>
 File: ../figures/SudoSLVRR_Web.png Graphic file (type png)
 <use ../figures/SudoSLVRR_Web.png>
 Package pdftex.def Info: ../figures/SudoSLVRR_Web.png  used on input line 70.
 (pdftex.def)             Requested size: 433.62pt x 235.49298pt.
- [53] [54 <../figures/SudoSLVRR_Web.png>]
+ [53] [54 <../figures/SudoSLVRR_Web.png>] [55]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 123.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 129.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 123.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 129.
 
-Overfull \hbox (23.96165pt too wide) in paragraph at lines 114--127
+Overfull \hbox (23.96165pt too wide) in paragraph at lines 116--157
  [][] 
  []
 
-[55]
-Overfull \hbox (23.96165pt too wide) in paragraph at lines 134--147
- [][] 
- []
-
-
-Overfull \hbox (13.62935pt too wide) in paragraph at lines 154--167
- [][] 
- []
-
-Package pgfplots info on input line 183: Using 'lua backend=false' for axis: x 
+Package pgfplots info on input line 173: Using 'lua backend=false' for axis: x 
 coord trafo unsupported.
-Package pgfplots info on input line 202: Using 'lua backend=false' for axis: x 
+Package pgfplots info on input line 192: Using 'lua backend=false' for axis: x 
 coord trafo unsupported.
 [56]
-Package pgfplots info on input line 227: Using 'lua backend=false' for axis: x 
-coord trafo unsupported.
-) [57]
+Overfull \hbox (15.29446pt too wide) in paragraph at lines 204--204
+[][]\OT1/cmr/bx/n/14.4 Experiment 3: With-out Thread Com-mu-ni-ca-tion vs With 
+Thread
+ []
+
+[57]
+Overfull \hbox (33.79495pt too wide) in paragraph at lines 212--253
+ [][] 
+ []
+
+[58]
+Overfull \hbox (23.96165pt too wide) in paragraph at lines 266--319
+ [][] 
+ []
+
+[59] [60]
+<../figures/Model_Deployment1_ForExperiment.png, id=960, 1151.502pt x 626.94225
+pt>
+File: ../figures/Model_Deployment1_ForExperiment.png Graphic file (type png)
+<use ../figures/Model_Deployment1_ForExperiment.png>
+Package pdftex.def Info: ../figures/Model_Deployment1_ForExperiment.png  used o
+n input line 328.
+(pdftex.def)             Requested size: 216.81pt x 118.03926pt.
+<../figures/Model_Deployment2_ForExperiment.png, id=961, 1148.49075pt x 624.533
+25pt>
+File: ../figures/Model_Deployment2_ForExperiment.png Graphic file (type png)
+<use ../figures/Model_Deployment2_ForExperiment.png>
+Package pdftex.def Info: ../figures/Model_Deployment2_ForExperiment.png  used o
+n input line 335.
+(pdftex.def)             Requested size: 216.81pt x 117.89064pt.
+) [61 <../figures/Model_Deployment1_ForExperiment.png> <../figures/Model_Deploy
+ment2_ForExperiment.png>]
 :<-
 :<+ chapter5.tex
 \openout2 = `chapter5.aux'.
 
 (chapter5.tex
 Chapter 5.
-) [58
+) [62
 
 
 
@@ -1827,41 +1846,41 @@ Chapter 5.
 :<+ appendix.tex
 \openout2 = `appendix.aux'.
 
-(appendix.tex [59
+(appendix.tex [63
 
 
 
 
-] [60] [61] [62] [63]) [64]
+] [64] [65] [66] [67]) [68]
 :<-
 :<+ thesis.bbl
-(thesis.bbl [65
+(thesis.bbl [69
 
 
 
-] [66] [67])
+] [70] [71])
 :<-
 
 Package caption Warning: Unused \captionsetup[sub] on input line 42.
 See the caption package documentation for explanation.
 
-[68] (thesis.aux (acknowl.aux) (abstract.aux) (chapter1.aux) (chapter2.aux)
+[72] (thesis.aux (acknowl.aux) (abstract.aux) (chapter1.aux) (chapter2.aux)
 (chapter3.aux) (chapter4.aux) (chapter5.aux) (appendix.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: F915522DC7B13EF7EA9318E26E777668;8358.
+(rerunfilecheck)             Checksum: E19C79269FA43D7AD9AD1893875B8E62;9481.
  ) 
 Here is how much of TeX's memory you used:
- 36625 strings out of 467871
- 844041 string characters out of 5411563
- 1326740 words of memory out of 5000000
- 64589 multiletter control sequences out of 15000+600000
+ 36637 strings out of 467871
+ 844650 string characters out of 5411563
+ 1325157 words of memory out of 5000000
+ 64593 multiletter control sequences out of 15000+600000
  642334 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,20n,131p,1829b,2331s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,20n,131p,1829b,2329s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\John Michael Jabuen\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/
 ec/dpi600\tcrm1200.pk><C:/Users/John Michael Jabuen/AppData/Local/Programs/MiKT
 eX/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Users/John Michael Jabuen/App
@@ -1886,9 +1905,9 @@ s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/John Michael Jabue
 n/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Us
 ers/John Michael Jabuen/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmti12.pfb>
-Output written on thesis.pdf (78 pages, 3311832 bytes).
+Output written on thesis.pdf (82 pages, 3560732 bytes).
 PDF statistics:
- 1113 PDF objects out of 1200 (max. 8388607)
- 268 named destinations out of 1000 (max. 500000)
- 557 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1161 PDF objects out of 1200 (max. 8388607)
+ 276 named destinations out of 1000 (max. 500000)
+ 591 words of extra memory for PDF output out of 10000 (max. 10000000)
 

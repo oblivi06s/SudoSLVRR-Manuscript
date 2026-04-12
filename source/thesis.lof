@@ -42,6 +42,7 @@
 \contentsline {figure}{\numberline {3.31}{\ignorespaces Model deployment as Web-based application}}{49}{figure.caption.57}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces SudoSLVRR web-based application}}{54}{figure.caption.68}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Comparison of computational efficiency between CP-DCM-ACO and MT-CP-DCM-ACO across grid sizes.}}{57}{figure.caption.75}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Impact of multithreading on solver reliability for high-dimensional Sudoku ($25 \times 25$).}}{57}{figure.caption.76}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Shows the computational efficiency between CP-DCM-ACO and MT-CP-DCM-ACO across puzzle sizes.}}{57}{figure.caption.73}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces SudoSLVRR web-based application: Experiment Mode}}{61}{figure.caption.79}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces SudoSLVRR web-based application: Game Mode}}{61}{figure.caption.80}%
 \addvspace {10\p@ }

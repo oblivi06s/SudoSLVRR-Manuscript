@@ -420,15 +420,15 @@ OUTPUT abstract.aux
 INPUT .\abstract.tex
 INPUT .\abstract.tex
 INPUT abstract.tex
-INPUT .\thesis.toc
-INPUT .\thesis.toc
-INPUT thesis.toc
 INPUT C:\Users\John Michael Jabuen\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
 INPUT C:\Users\John Michael Jabuen\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
 INPUT C:\Users\John Michael Jabuen\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
 INPUT C:\Users\John Michael Jabuen\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
 INPUT C:\Users\John Michael Jabuen\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\John Michael Jabuen\AppData\Local\Programs\MiKTeX\fonts\tfm\public\latex-fonts\lasy10.tfm
+INPUT .\thesis.toc
+INPUT .\thesis.toc
+INPUT thesis.toc
 OUTPUT thesis.toc
 INPUT .\thesis.lot
 INPUT .\thesis.lot
@@ -766,6 +766,20 @@ INPUT C:\Users\John Michael Jabuen\AppData\Local\Programs\MiKTeX\fonts\tfm\publi
 INPUT C:\Users\John Michael Jabuen\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy7.tfm
 INPUT C:\Users\John Michael Jabuen\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmbsy5.tfm
 INPUT C:\Users\John Michael Jabuen\AppData\Local\Programs\MiKTeX\fonts\tfm\public\latex-fonts\lasyb10.tfm
+INPUT ..\figures\Model_Deployment1_ForExperiment.png
+INPUT ..\figures\Model_Deployment1_ForExperiment.png
+INPUT ..\figures\Model_Deployment1_ForExperiment.png
+INPUT ..\figures\Model_Deployment1_ForExperiment.png
+INPUT ..\figures\Model_Deployment1_ForExperiment.png
+INPUT ..\figures\Model_Deployment1_ForExperiment.png
+INPUT ..\figures\Model_Deployment1_ForExperiment.png
+INPUT ..\figures\Model_Deployment2_ForExperiment.png
+INPUT ..\figures\Model_Deployment2_ForExperiment.png
+INPUT ..\figures\Model_Deployment2_ForExperiment.png
+INPUT ..\figures\Model_Deployment2_ForExperiment.png
+INPUT ..\figures\Model_Deployment2_ForExperiment.png
+INPUT ..\figures\Model_Deployment2_ForExperiment.png
+INPUT ..\figures\Model_Deployment2_ForExperiment.png
 INPUT .\chapter5.tex
 INPUT .\chapter5.tex
 OUTPUT chapter5.aux

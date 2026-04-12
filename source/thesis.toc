@@ -36,12 +36,15 @@
 \contentsline {subsection}{Experiment 5: Model Deployment}{53}{section*.67}%
 \contentsline {section}{\numberline {4.4}Results and Discussion}{54}{section.4.4}%
 \contentsline {subsection}{Experiment 1: Ablation Study}{54}{section*.69}%
-\contentsline {subsection}{Experiment 2: Single-Thread Multi-Colony ACO vs Multithread Multi-Colony ACO}{56}{section*.71}%
-\contentsline {chapter}{\numberline {5}Conclusions and Recommendations}{58}{chapter.5}%
-\contentsline {chapter}{Appendix A}{59}{appendix*.77}%
-\contentsline {section}{\numberline {A.1}Baseline Configuration}{59}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Ablation Study}{60}{section.A.2}%
-\contentsline {subsection}{Ablation Study 1: Core ACO Parameters}{60}{section*.79}%
-\contentsline {subsection}{Ablation Study 2: Multi-Colony ACO Parameters}{62}{section*.82}%
-\contentsline {subsection}{Ablation Study 3: Multithread Parameters}{63}{section*.84}%
-\contentsline {chapter}{References}{65}{table.caption.85}%
+\contentsline {subsection}{Experiment 2: Single-Thread Multi-Colony ACO vs Multithread Multi-Colony ACO}{55}{section*.71}%
+\contentsline {subsection}{Experiment 3: Without Thread Communication vs With Thread Communication}{57}{section*.74}%
+\contentsline {subsection}{Experiment 4: Multithreaded Multi-Colony ACO vs State-of-the-Art Sudoku Solver}{59}{section*.76}%
+\contentsline {subsection}{Experiment 5: Model Deployment}{61}{section*.78}%
+\contentsline {chapter}{\numberline {5}Conclusions and Recommendations}{62}{chapter.5}%
+\contentsline {chapter}{Appendix A}{63}{appendix*.81}%
+\contentsline {section}{\numberline {A.1}Baseline Configuration}{63}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Ablation Study}{64}{section.A.2}%
+\contentsline {subsection}{Ablation Study 1: Core ACO Parameters}{64}{section*.83}%
+\contentsline {subsection}{Ablation Study 2: Multi-Colony ACO Parameters}{66}{section*.86}%
+\contentsline {subsection}{Ablation Study 3: Multithread Parameters}{67}{section*.88}%
+\contentsline {chapter}{References}{69}{table.caption.89}%
