@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.11)  12 APR 2026 23:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.11)  13 APR 2026 12:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1836,35 +1836,35 @@ ment2_ForExperiment.png>]
 
 (chapter5.tex
 Chapter 5.
-) [62
+[62
 
 
 
 
-]
+]) [63]
 :<-
 :<+ appendix.tex
 \openout2 = `appendix.aux'.
 
-(appendix.tex [63
+(appendix.tex [64
 
 
 
 
-] [64] [65] [66] [67]) [68]
+] [65] [66] [67] [68]) [69]
 :<-
 :<+ thesis.bbl
-(thesis.bbl [69
+(thesis.bbl [70
 
 
 
-] [70] [71])
+] [71] [72])
 :<-
 
 Package caption Warning: Unused \captionsetup[sub] on input line 42.
 See the caption package documentation for explanation.
 
-[72] (thesis.aux (acknowl.aux) (abstract.aux) (chapter1.aux) (chapter2.aux)
+[73] (thesis.aux (acknowl.aux) (abstract.aux) (chapter1.aux) (chapter2.aux)
 (chapter3.aux) (chapter4.aux) (chapter5.aux) (appendix.aux))
  ***********
 LaTeX2e <2025-11-01>
@@ -1874,9 +1874,9 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: E19C79269FA43D7AD9AD1893875B8E62;9481.
  ) 
 Here is how much of TeX's memory you used:
- 36637 strings out of 467871
- 844650 string characters out of 5411563
- 1325157 words of memory out of 5000000
+ 36638 strings out of 467871
+ 844657 string characters out of 5411563
+ 1325169 words of memory out of 5000000
  64593 multiletter control sequences out of 15000+600000
  642334 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1905,9 +1905,9 @@ s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/John Michael Jabue
 n/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Us
 ers/John Michael Jabuen/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmti12.pfb>
-Output written on thesis.pdf (82 pages, 3560732 bytes).
+Output written on thesis.pdf (83 pages, 3564980 bytes).
 PDF statistics:
- 1161 PDF objects out of 1200 (max. 8388607)
- 276 named destinations out of 1000 (max. 500000)
+ 1166 PDF objects out of 1200 (max. 8388607)
+ 277 named destinations out of 1000 (max. 500000)
  591 words of extra memory for PDF output out of 10000 (max. 10000000)
 

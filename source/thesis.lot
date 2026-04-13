@@ -8,8 +8,8 @@
 \contentsline {table}{\numberline {4.4}{\ignorespaces Impact of Thread Communication on MT-CP-DCM-ACO across $9 \times 9$, $16 \times 16$, and $25 \times 25$ Sudoku Instances (100 Puzzles, 5 Trial Runs).}}{58}{table.caption.75}%
 \contentsline {table}{\numberline {4.5}{\ignorespaces Performance Comparison of the State-of-the-Art (CP-ACS) vs. CP-DCM-ACO and MT-CP-DCM-ACO across $9 \times 9$, $16 \times 16$, and $25 \times 25$ Sudoku Instances (100 Puzzles, 5 Trial Runs).}}{60}{table.caption.77}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Baseline Configuration}}{63}{table.caption.82}%
-\contentsline {table}{\numberline {A.2}{\ignorespaces Summary of the impact of different values of Core ACO parameter on model performance across $9\times 9$, $16\times 16$, and $25\times 25$ Sudoku Instances.}}{64}{table.caption.84}%
-\contentsline {table}{\numberline {A.3}{\ignorespaces Summary of the impact of Timeout values on model performance across $9\times 9$, $16\times 16$, and $25\times 25$ Sudoku Instances.}}{66}{table.caption.85}%
-\contentsline {table}{\numberline {A.4}{\ignorespaces Summary of the impact of Multi-Colony ACO parameters on model performance across $9\times 9$, $16\times 16$, and $25\times 25$ Sudoku Instances.}}{66}{table.caption.87}%
-\contentsline {table}{\numberline {A.5}{\ignorespaces Summary of the impact of Multithread Parameters on model performance across $9\times 9$, $16\times 16$, and $25\times 25$ Sudoku Instances.}}{67}{table.caption.89}%
+\contentsline {table}{\numberline {A.1}{\ignorespaces Baseline Configuration}}{64}{table.caption.82}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces Summary of the impact of different values of Core ACO parameter on model performance across $9\times 9$, $16\times 16$, and $25\times 25$ Sudoku Instances.}}{65}{table.caption.84}%
+\contentsline {table}{\numberline {A.3}{\ignorespaces Summary of the impact of Timeout values on model performance across $9\times 9$, $16\times 16$, and $25\times 25$ Sudoku Instances.}}{67}{table.caption.85}%
+\contentsline {table}{\numberline {A.4}{\ignorespaces Summary of the impact of Multi-Colony ACO parameters on model performance across $9\times 9$, $16\times 16$, and $25\times 25$ Sudoku Instances.}}{67}{table.caption.87}%
+\contentsline {table}{\numberline {A.5}{\ignorespaces Summary of the impact of Multithread Parameters on model performance across $9\times 9$, $16\times 16$, and $25\times 25$ Sudoku Instances.}}{68}{table.caption.89}%

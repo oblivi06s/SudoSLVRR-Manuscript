@@ -41,10 +41,10 @@
 \contentsline {subsection}{Experiment 4: Multithreaded Multi-Colony ACO vs State-of-the-Art Sudoku Solver}{59}{section*.76}%
 \contentsline {subsection}{Experiment 5: Model Deployment}{61}{section*.78}%
 \contentsline {chapter}{\numberline {5}Conclusions and Recommendations}{62}{chapter.5}%
-\contentsline {chapter}{Appendix A}{63}{appendix*.81}%
-\contentsline {section}{\numberline {A.1}Baseline Configuration}{63}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Ablation Study}{64}{section.A.2}%
-\contentsline {subsection}{Ablation Study 1: Core ACO Parameters}{64}{section*.83}%
-\contentsline {subsection}{Ablation Study 2: Multi-Colony ACO Parameters}{66}{section*.86}%
-\contentsline {subsection}{Ablation Study 3: Multithread Parameters}{67}{section*.88}%
-\contentsline {chapter}{References}{69}{table.caption.89}%
+\contentsline {chapter}{Appendix A}{64}{appendix*.81}%
+\contentsline {section}{\numberline {A.1}Baseline Configuration}{64}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Ablation Study}{65}{section.A.2}%
+\contentsline {subsection}{Ablation Study 1: Core ACO Parameters}{65}{section*.83}%
+\contentsline {subsection}{Ablation Study 2: Multi-Colony ACO Parameters}{67}{section*.86}%
+\contentsline {subsection}{Ablation Study 3: Multithread Parameters}{68}{section*.88}%
+\contentsline {chapter}{References}{70}{table.caption.89}%
