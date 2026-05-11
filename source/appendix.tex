@@ -218,10 +218,53 @@ For the multithread parameters, table~\ref{tab:ablation_multithread} that maximi
 
 The communication threshold parameter, `Comm-thresh', controls when to change the frequency of the communication between the threads. If the current iteration is less than the value of this parameter, the threads communicate at longer intervals. Otherwise, threads communicate at short intervals. By setting this to 200, threads have enough time to build their own solution without any external information. The parameter, `Comm-early' tells when does the thread communicate if the current iteration is still less than the communication threshold. Setting this to a lower value makes the thread receive and share information without enough time to refine its own solution. From this table, we can see that the value 120 gives the best performance because it gives threads enough time to build its promising solution before sharing it. Lastly, the parameter that controls when the thread communicates if the current iteration is more than the communication threshold is the `comm-early'. Take note that in late iteration, there are only a few empty cells and it is very constrained. Thus, frequent communication between threads is necessary to prevent redundant tries of the same cell-value pairs. 
 
-\subsection{Ablation Study 4: Thread Synchronization Overhead}
+
+\subsection{Ablation Study 4: Impact of Fixed Clue Density(F\%) to Solvers' Performance}
+As shown in the Table~\ref{tab:alg_comparison_fpercent}, the performance of the three algorithms for puzzles with fixed clue percentages less than 40\% and greater than 50\% has small differences in terms of average time and iteration. However, we can see a big difference from the performance of the three algorithms in the puzzles with fixed clues of 40\%, 45\%, and 50\%. As shown in the same table, puzzles with 45\% fixed clue percentage are the most difficult puzzles but the proposed model maintains a 100\% success rate with reduced runtime and iteration. 
+
+This indicates that the puzzles with 40\%, 45\%, and 50\% fixed clue percentages are overly constrained making its solution space very complex. This was the empirical justification of the final dataset consisting of 300 selected hardest puzzles to obtain a reliable evaluation and comparison between the performance of the proposed model and the baseline solvers. We can also see from the table that the multi-level collaboration of the proposed model successfully found a solution within this very complex solution space by preserving diversity through the inter-thread communication and preventing premature convergence through collaboration between heterogeneous colonies.
+\begin{table}[H]
+    \centering
+    \caption{Performance comparison in terms of success rate (\%), average runtime (seconds), and average number of iteration of CP-ACS, CP-DCM-ACO, and MT-CP-DCM-ACO across Fixed Percentages (F\%) on $25\times25$ Sudoku Instances.}
+    \label{tab:alg_comparison_fpercent}
+    \footnotesize
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}c ccc ccc ccc@{}}
+        \toprule
+        \multirow{2}{*}{\textbf{F\%}} & \multicolumn{3}{c}{\textbf{CP-ACS}} & \multicolumn{3}{c}{\textbf{CP-DCM-ACO}} & \multicolumn{3}{c}{\textbf{MT-CP-DCM-ACO}} \\
+        \cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
+        & Succ. (\%) & Time $\pm$ Std. (s) & Iter. & Succ. (\%) & Time $\pm$ Std. (s) & Iter. & Succ. (\%) & Time $\pm$ Std. (s) & Iter. \\
+        \midrule
+        0   & 100 & 0.2496 $\pm$ 0.2852 & 5.15   & 100 & 1.0932 $\pm$ 0.5457 & 5.80   & 100 & 0.9137 $\pm$ 0.1566 & 4.98 \\
+        5   & 100 & 0.3438 $\pm$ 0.4370 & 7.88   & 100 & 0.7981 $\pm$ 0.2390 & 5.19   & 100 & 0.7753 $\pm$ 0.1457 & 4.43 \\
+        10  & 100 & 0.3879 $\pm$ 0.4762 & 9.92   & 100 & 0.8059 $\pm$ 0.3053 & 5.43   & 100 & 0.6987 $\pm$ 0.1584 & 4.23 \\
+        15  & 100 & 0.4932 $\pm$ 0.6602 & 14.18  & 100 & 0.8404 $\pm$ 0.3189 & 5.86   & 100 & 0.6326 $\pm$ 0.1439 & 4.15 \\
+        20  & 100 & 0.7411 $\pm$ 0.7547 & 24.17  & 100 & 0.9026 $\pm$ 0.4427 & 6.90   & 100 & 0.6867 $\pm$ 0.1816 & 4.86 \\
+        25  & 100 & 0.8786 $\pm$ 0.7554 & 33.30  & 100 & 1.3655 $\pm$ 0.8281 & 11.55  & 100 & 0.7511 $\pm$ 0.3289 & 5.89 \\
+        30  & 100 & 1.3417 $\pm$ 1.2498 & 59.37  & 100 & 1.9148 $\pm$ 1.3696 & 17.74  & 100 & 0.9389 $\pm$ 0.4029 & 8.28 \\
+        35  & 99  & 1.7683 $\pm$ 1.4215 & 93.44  & 100 & 3.5162 $\pm$ 2.3417 & 39.36  & 100 & 1.5575 $\pm$ 0.8004 & 15.69 \\
+        40  & 95  & 2.4043 $\pm$ 1.8626 & 158.26 & 100 & 6.1691 $\pm$ 2.3417 & 82.62  & 100 & 2.4274 $\pm$ 1.8093 & 30.46 \\
+        \textbf{45}  & \textbf{72}  & \textbf{2.6050 $\pm$ 2.3898} & \textbf{233.63} & \textbf{99}  & \textbf{10.9498 $\pm$ 19.8062}& \textbf{198.40}& \textbf{100} & \textbf{2.8918 $\pm$ 3.7444} & \textbf{51.21} \\
+        50  & 90  & 0.3616 $\pm$ 0.9902 & 49.60  & 99  & 3.7922 $\pm$ 2.8855 & 42.62  & 100 & 0.2107 $\pm$ 0.2998 & 6.74 \\
+        55  & 100 & 0.0007 $\pm$ 0.0022 & 1.05   & 100 & 0.0093 $\pm$ 0.0028 & 1.01   & 100 & 0.0089 $\pm$ 0.0037 & 1.02 \\
+        60  & 100 & 0.0003 $\pm$ 0.0001 & 1.00   & 100 & 0.0083 $\pm$ 0.0007 & 1.00   & 100 & 0.0079 $\pm$ 0.0004 & 1.00 \\
+        65  & 100 & 0.0003 $\pm$ 0.0001 & 1.00   & 100 & 0.0081 $\pm$ 0.0005 & 1.00   & 100 & 0.0077 $\pm$ 0.0007 & 1.00 \\
+        70  & 100 & 0.0002 $\pm$ 0.0001 & 1.00   & 100 & 0.0077 $\pm$ 0.0005 & 1.00   & 100 & 0.0075 $\pm$ 0.0005 & 1.00 \\
+        75  & 100 & 0.0002 $\pm$ 0.0000 & 1.00   & 100 & 0.0075 $\pm$ 0.0004 & 1.00   & 100 & 0.0073 $\pm$ 0.0003 & 1.00 \\
+        80  & 100 & 0.0002 $\pm$ 0.0000 & 1.00   & 100 & 0.0074 $\pm$ 0.0004 & 1.00   & 100 & 0.0072 $\pm$ 0.0006 & 1.00 \\
+        85  & 100 & 0.0002 $\pm$ 0.0001 & 1.00   & 100 & 0.0092 $\pm$ 0.0017 & 1.01   & 100 & 0.0072 $\pm$ 0.0006 & 1.00 \\
+        90  & 100 & 0.0002 $\pm$ 0.0001 & 1.00   & 100 & 0.0074 $\pm$ 0.0007 & 1.00   & 100 & 0.0070 $\pm$ 0.0003 & 1.00 \\
+        95  & 100 & 0.0002 $\pm$ 0.0000 & 1.00   & 100 & 0.0071 $\pm$ 0.0005 & 1.00   & 100 & 0.0071 $\pm$ 0.0008 & 1.00 \\
+        100 & 100 & 0.0002 $\pm$ 0.0000 & 1.00   & 100 & 0.0071 $\pm$ 0.0006 & 1.00   & 100 & 0.0069 $\pm$ 0.0004 & 1.00 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+
+
+\subsection{Ablation Study 5: Thread Synchronization Overhead}
 Table~\ref{tab:thread_scaling_idle} shows the performance of the multithreaded multi-colony ACO solver with a different number of threads together with the waiting (idle) times of each thread. The calculation of the  average idle time of each thread per communication barrier entry begins by adding all the waiting times of all threads. This total system idle time is then divided by the number of communication barrier entries to get the average waiting time of the system per barrier entry. Lastly, the obtained result is divided by the number of threads to get the average idle time of each thread per barrier entry. Here is the mathematical equation for this component: 
 \begin{equation}
-    \text{Average Idle Time per Barrier Entry} = \frac{T_{idle}}{C \times N}
+    \text{Average Idle Time of Each Thread per Barrier Entry} = \frac{T_{idle}}{C \times N}
     \label{eq:avg_idle_time}
 \end{equation}
 Where:
@@ -233,7 +276,7 @@ Where:
 
 \begin{table}[H]
     \centering
-    \caption{Performance Comparison in terms of success rate (\%), average runtime (seconds), average iteration, and average idle time of each thread per barrier entry (seconds/entry) of varying number of Threads in MT-CP-DCM-ACO solver on $25\times25$ Sudoku instance}
+    \caption{Performance comparison in terms of success rate (\%), average runtime (seconds), average iteration, and average idle time of each thread per barrier entry (seconds/entry) of varying number of threads in MT-CP-DCM-ACO solver on $25\times25$ Sudoku instance}
     \label{tab:thread_scaling_idle}
     \resizebox{\textwidth}{!}{
         \begin{tabular}{ccccccc}
@@ -285,50 +328,9 @@ Where:
         };
         \end{axis}
     \end{tikzpicture}
-    \caption{Impact of Thread Count on Synchronization Overhead (Idle Time)}
+    \caption{Impact of thread count on synchronization overhead (Idle Time)}
     \label{fig:idle_time_scaling_graph}
 \end{figure}
 
 We can see from the Figure~\ref{fig:idle_time_scaling_graph} that the idle time of each thread per barrier entry with respect to the number of threads does not follow a linear trend unlike the success rate, average time and iteration as shown in Table~\ref{tab:thread_scaling_idle}. The idle time spikes up when there are 3 threads, drops for 4 threads, and spikes up again for 5 threads. This indicates that having 4 threads in the solver guarantees the smallest idle time for each thread. However, it does not mean that having 4 threads is better than having 5 threads as the performance metrics include success rate, average time, standard deviation and average iteration. Despite the spiking up and down of the idle time of each thread, the synchronization overhead is remarkably small compared to the average time to solve the puzzle. The average waiting time of each thread for all synchronization events is just less than 5\% of the average time to solve the puzzle. Therefore, the dynamic inter-thread communication phase successfully balances cross-region exploration and threads synchronization overhead by following a structured communication interval. 
 
-
-\subsection{Ablation Study 5: Impact of Fixed Clue Density(F\%) to Solvers' Performance}
-As shown in the Table~\ref{tab:alg_comparison_fpercent}, the performance of the three algorithms for puzzles with fixed clue percentages less than 40\% and greater than 50\% has small differences in terms of average time and iteration. However, we can see a big difference from the performance of the three algorithms in the puzzles with fixed clues of 40\%, 45\%, and 50\%. As shown in the same table, puzzles with 45\% fixed clue percentage are the most difficult puzzles but the proposed model maintains a 100\% success rate with reduced runtime and iteration. 
-
-This indicates that the puzzles with 40\%, 45\%, and 50\% fixed clue percentages are overly constrained making its solution space very complex. This was the empirical justification of the final dataset consisting of 300 selected hardest puzzles to obtain a reliable evaluation and comparison between the performance of the proposed model and the baseline solvers. We can also see from the table that the multi-level collaboration of the proposed model successfully found a solution within this very complex solution space by preserving diversity through the inter-thread communication and preventing premature convergence through collaboration between heterogeneous colonies.
-\begin{table}[H]
-    \centering
-    \caption{Performance Comparison in terms of success rate (\%), average runtime (seconds), and average number of iteration of CP-ACS, CP-DCM-ACO, and MT-CP-DCM-ACO across Fixed Percentages (F\%) on $25\times25$ Sudoku Instances.}
-    \label{tab:alg_comparison_fpercent}
-    \footnotesize
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{@{}c ccc ccc ccc@{}}
-        \toprule
-        \multirow{2}{*}{\textbf{F\%}} & \multicolumn{3}{c}{\textbf{CP-ACS}} & \multicolumn{3}{c}{\textbf{CP-DCM-ACO}} & \multicolumn{3}{c}{\textbf{MT-CP-DCM-ACO}} \\
-        \cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
-        & Succ. (\%) & Time $\pm$ Std. (s) & Iter. & Succ. (\%) & Time $\pm$ Std. (s) & Iter. & Succ. (\%) & Time $\pm$ Std. (s) & Iter. \\
-        \midrule
-        0   & 100 & 0.2496 $\pm$ 0.2852 & 5.15   & 100 & 1.0932 $\pm$ 0.5457 & 5.80   & 100 & 0.9137 $\pm$ 0.1566 & 4.98 \\
-        5   & 100 & 0.3438 $\pm$ 0.4370 & 7.88   & 100 & 0.7981 $\pm$ 0.2390 & 5.19   & 100 & 0.7753 $\pm$ 0.1457 & 4.43 \\
-        10  & 100 & 0.3879 $\pm$ 0.4762 & 9.92   & 100 & 0.8059 $\pm$ 0.3053 & 5.43   & 100 & 0.6987 $\pm$ 0.1584 & 4.23 \\
-        15  & 100 & 0.4932 $\pm$ 0.6602 & 14.18  & 100 & 0.8404 $\pm$ 0.3189 & 5.86   & 100 & 0.6326 $\pm$ 0.1439 & 4.15 \\
-        20  & 100 & 0.7411 $\pm$ 0.7547 & 24.17  & 100 & 0.9026 $\pm$ 0.4427 & 6.90   & 100 & 0.6867 $\pm$ 0.1816 & 4.86 \\
-        25  & 100 & 0.8786 $\pm$ 0.7554 & 33.30  & 100 & 1.3655 $\pm$ 0.8281 & 11.55  & 100 & 0.7511 $\pm$ 0.3289 & 5.89 \\
-        30  & 100 & 1.3417 $\pm$ 1.2498 & 59.37  & 100 & 1.9148 $\pm$ 1.3696 & 17.74  & 100 & 0.9389 $\pm$ 0.4029 & 8.28 \\
-        35  & 99  & 1.7683 $\pm$ 1.4215 & 93.44  & 100 & 3.5162 $\pm$ 2.3417 & 39.36  & 100 & 1.5575 $\pm$ 0.8004 & 15.69 \\
-        40  & 95  & 2.4043 $\pm$ 1.8626 & 158.26 & 100 & 6.1691 $\pm$ 2.3417 & 82.62  & 100 & 2.4274 $\pm$ 1.8093 & 30.46 \\
-        \textbf{45}  & \textbf{72}  & \textbf{2.6050 $\pm$ 2.3898} & \textbf{233.63} & \textbf{99}  & \textbf{10.9498 $\pm$ 19.8062}& \textbf{198.40}& \textbf{100} & \textbf{2.8918 $\pm$ 3.7444} & \textbf{51.21} \\
-        50  & 90  & 0.3616 $\pm$ 0.9902 & 49.60  & 99  & 3.7922 $\pm$ 2.8855 & 42.62  & 100 & 0.2107 $\pm$ 0.2998 & 6.74 \\
-        55  & 100 & 0.0007 $\pm$ 0.0022 & 1.05   & 100 & 0.0093 $\pm$ 0.0028 & 1.01   & 100 & 0.0089 $\pm$ 0.0037 & 1.02 \\
-        60  & 100 & 0.0003 $\pm$ 0.0001 & 1.00   & 100 & 0.0083 $\pm$ 0.0007 & 1.00   & 100 & 0.0079 $\pm$ 0.0004 & 1.00 \\
-        65  & 100 & 0.0003 $\pm$ 0.0001 & 1.00   & 100 & 0.0081 $\pm$ 0.0005 & 1.00   & 100 & 0.0077 $\pm$ 0.0007 & 1.00 \\
-        70  & 100 & 0.0002 $\pm$ 0.0001 & 1.00   & 100 & 0.0077 $\pm$ 0.0005 & 1.00   & 100 & 0.0075 $\pm$ 0.0005 & 1.00 \\
-        75  & 100 & 0.0002 $\pm$ 0.0000 & 1.00   & 100 & 0.0075 $\pm$ 0.0004 & 1.00   & 100 & 0.0073 $\pm$ 0.0003 & 1.00 \\
-        80  & 100 & 0.0002 $\pm$ 0.0000 & 1.00   & 100 & 0.0074 $\pm$ 0.0004 & 1.00   & 100 & 0.0072 $\pm$ 0.0006 & 1.00 \\
-        85  & 100 & 0.0002 $\pm$ 0.0001 & 1.00   & 100 & 0.0092 $\pm$ 0.0017 & 1.01   & 100 & 0.0072 $\pm$ 0.0006 & 1.00 \\
-        90  & 100 & 0.0002 $\pm$ 0.0001 & 1.00   & 100 & 0.0074 $\pm$ 0.0007 & 1.00   & 100 & 0.0070 $\pm$ 0.0003 & 1.00 \\
-        95  & 100 & 0.0002 $\pm$ 0.0000 & 1.00   & 100 & 0.0071 $\pm$ 0.0005 & 1.00   & 100 & 0.0071 $\pm$ 0.0008 & 1.00 \\
-        100 & 100 & 0.0002 $\pm$ 0.0000 & 1.00   & 100 & 0.0071 $\pm$ 0.0006 & 1.00   & 100 & 0.0069 $\pm$ 0.0004 & 1.00 \\
-        \bottomrule
-    \end{tabular}}
-\end{table}

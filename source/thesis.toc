@@ -47,6 +47,6 @@
 \contentsline {subsection}{Ablation Study 1: Core ACO Parameters}{66}{section*.84}%
 \contentsline {subsection}{Ablation Study 2: Multi-Colony ACO Parameters}{68}{section*.87}%
 \contentsline {subsection}{Ablation Study 3: Multithread Parameters}{70}{section*.89}%
-\contentsline {subsection}{Ablation Study 4: Thread Synchronization Overhead}{71}{section*.91}%
-\contentsline {subsection}{Ablation Study 5: Impact of Fixed Clue Density(F\%) to Solvers' Performance}{73}{section*.94}%
-\contentsline {chapter}{References}{75}{table.caption.95}%
+\contentsline {subsection}{Ablation Study 4: Impact of Fixed Clue Density(F\%) to Solvers' Performance}{71}{section*.91}%
+\contentsline {subsection}{Ablation Study 5: Thread Synchronization Overhead}{72}{section*.93}%
+\contentsline {chapter}{References}{75}{figure.caption.95}%

@@ -169,4 +169,27 @@ J.~Zhao, X.~You, Q.~Duan, and S.~Liu, ``Multiple ant colony algorithm combining
   community relationship network,'' \emph{Arabian Journal for Science and
   Engineering}, vol.~47, 02 2022.
 
+\bibitem{Masukane}
+T.~Masukane, K.~Mizuno, and H.~Shinohara, ``Ant colony optimization with
+  negative feedback for solving constraint satisfaction problems,'' in
+  \emph{2018 Conference on Technologies and Applications of Artificial
+  Intelligence (TAAI)}, 2018, pp. 156--159.
+
+\bibitem{nurcahyadi2022negative}
+\BIBentryALTinterwordspacing
+T.~Nurcahyadi, C.~Blum, and F.~Many{\`a}, ``Negative learning ant colony
+  optimization for maxsat,'' \emph{International Journal of Computational
+  Intelligence Systems}, vol.~15, p.~71, 2022. [Online]. Available:
+  \url{https://doi.org/10.1007/s44196-022-00120-6}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Haynes}
+D.~D. Haynes and S.~M. Corns, ``Algorithm for a tabu — ant colony
+  optimizer,'' in \emph{2015 IEEE Congress on Evolutionary Computation (CEC)},
+  2015, pp. 529--535.
+
+\bibitem{james}
+J.~Montgomery and M.~Randall, ``Anti-pheromone as a tool for better exploration
+  of search space,'' 09 2002, pp. 100--110.
+
 \end{thebibliography}
