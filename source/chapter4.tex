@@ -2,13 +2,13 @@
 
 \section{Performance Evaluation Metrics}
 
-This section outlines the performance metrics used to evaluate the proposed framework. This evaluation is designed to verify that the proposed model gives a result that is better than the base model and other existing sudoku solvers. The mentioned performance indicators are the following:
+This section outlines the performance metrics used to evaluate the proposed framework. This evaluation is designed to verify that the proposed model gives a result that is better than the base model and other existing Sudoku solvers. The mentioned performance indicators are the following:
 
 \subsection*{Success Rate (SR)}
         \begin{equation}
         SR = \left( \frac{N_{success}}{N_{total}} \right) \times 100\%
         \end{equation}
-        where $N_{total}$ is 100 unique general puzzles. A higher Success Rate means the solver is able to solve more sudoku puzzles thus better at searching the search space for a solution.    
+        where $N_{total}$ is 100 unique general puzzles. A higher success rate indicates improved exploration as multi-colony collaboration and inter-thread communication preserves diversity, effectively reducing stagnation.     
 
 \subsection*{Mean Time to Solution (MTTS)}
         The average time to generate a solution is an essential performance metric to determine the computational efficiency of the solver. 
@@ -53,14 +53,14 @@ The experimental setup contains different sequence of experiments targeting spec
 \subsection{Experiment 1: Ablation Study}
         This experiment evaluates the impact of individual parameters to the model's performance. This experiment addresses the second objective of this study allowing the proposed model to be fine-tuned. 
 
-\subsection{Experiment 2: Single-Thread Multi-Colony ACO vs Multithread Multi-Colony ACO} 
-	This experiment compares the performance of between single thread and multithread solvers. This highlights the impact of parallelization on the solver’s performance when solving sudoku puzzles. It is important to note that parallelization in this experiment involves collaboration with other threads. 
+\subsection{Experiment 2: Single-Threaded Multi-Colony ACO vs Multithreaded Multi-Colony ACO} 
+	This experiment compares the performance of between single-threaded and multithreaded solvers. This highlights the impact of parallelization on the solver’s performance when solving Sudoku puzzles. It is important to note that parallelization in this experiment involves collaboration with other threads. 
 
 \subsection{Experiment 3: Without Thread Communication vs With Thread Communication}
         This experiment evaluates the necessity of information exchange between parallel threads. This, also, compares the performance of parallel independent runs against topology-aware and communicating threads. Communication topologies used in this experiment are ring and random communication topologies. 
 
 \subsection{Experiment 4: Multithreaded Multi-Colony ACO vs State-of-the-Art Sudoku Solver}
-        This experiment compares the performance of the proposed multithreaded multi-colony ACO solver against state-of-the-art sudoku solvers. This shows the robustness of the solver especially for high-order sudoku puzzle like $25 \times 25$.  
+        This experiment compares the performance of the proposed multithreaded multi-colony ACO solver against state-of-the-art Sudoku solvers. This shows the robustness of the solver especially for high-order Sudoku puzzle like $25 \times 25$.  
 
 \subsection{Experiment 5: Model Deployment}
 	This experiment addresses the last objective of this study which is to deploy the proposed solver as a functional web-based application. The deployment was implemented using Python Flask framework to manage both backend and frontend services and C++ for the implementation of the proposed solver. 
@@ -74,15 +74,15 @@ The experimental setup contains different sequence of experiments targeting spec
 
 \section{Results and Discussion}
 \subsection{Experiment 1: Ablation Study}
-        The final configuration for the proposed model, Multithread Multi-colony ACO Solver, was obtained through a series of experiment. Five different values for each 13 parameters are tried and observed its impact to the solver's perfomance. This was done by adjusting only one parameter at a time while holding other parameters constant at their baseline configuration (See Table~\ref{tab:baseline_parameters}). This experiment gave the best value for each parameter allowing the solver to maximize its potential in navigating a very complex solution space, especially of a large-scale $25 \times 25$ Sudoku. Table~\ref{tab:best_parameters} shows the summary of the best configuration of parameters for the proposed model. 
+        The final configuration for the proposed model, Multithreaded Multi-colony ACO Solver, was obtained through a series of experiment. Five different values for each 13 parameters are tried and observed its impact to the solver's perfomance. This was done by adjusting only one parameter at a time while holding other parameters constant at their baseline configuration (See Table~\ref{tab:baseline_parameters}). This experiment gave the best value for each parameter allowing the solver to maximize its potential in navigating a very complex solution space, especially of a large-scale $25 \times 25$ Sudoku. Table~\ref{tab:best_parameters} shows the summary of the best configuration of parameters for the proposed model. 
         \begin{table}[H]
-                \caption{Best Configuration of Multithread Multi-colony ACO}
+                \caption{Best Configuration of Multithreaded Multi-colony ACO}
                 \centering
                 \renewcommand{\arraystretch}{1.2} 
                 \setlength{\tabcolsep}{10pt} 
                 \begin{tabular}{|l|l|}
                 \hline
-                \textbf{Parameter}                          & \textbf{Baseline Value}                               \\ \hline
+                \textbf{Parameter}                          & \textbf{Best Value}                               \\ \hline
                 $q_0$ (Exploitation Factor)                 & 0.9                                        \\ \hline
                 $\xi$ (Local Pheromone Update)              & 0.1                                         \\ \hline
                 $\rho_0$ (Pheromone Persistence)            & 0.99                                        \\ \hline
@@ -104,13 +104,13 @@ The experimental setup contains different sequence of experiments targeting spec
                 \end{table}
         Tables~\ref{tab:ablation_coreACO_summary},~\ref{tab:ablation_timeout},~\ref{tab:ablation_multiColony}, and~\ref{tab:ablation_multithread} show the detailed results from the conducted ablation study. This contains the results of each parameter value accross three different puzzle sizes. 
 
-\subsection{Experiment 2: Single-Thread Multi-Colony ACO vs Multithread Multi-Colony ACO} 
-        This experiment shows the difference of the performance of single-thread multi-colony ACO and multithread multi-colony ACO. Furthermore, conducting this experiment shows the advantage of using concurrent exploration when solving combinatorial search space. 
-        Table~\ref{tab:single_vs_multi_comparison} shows the results of running the single-thread multi-colony ACO (CP-DCM-ACO) and the multithread multi-colony ACO (MT-CP-DCM-ACO). The solvers processed the same set of instances consisting of 100 puzzles each grid size ($9\times9$, $16\times16$, and $25\times25$) 5 times. We can see from the table that multithreading does not improves the speed of the solver but also offers greater scalability. It is clear that by leveraging parallel processing, the solver can guarantee finding a solution even in extreme solution space. 
+\subsection{Experiment 2: Single-Threaded Multi-Colony ACO vs Multithreaded Multi-Colony ACO} 
+        This experiment shows the difference of the performance of single-threaded multi-colony ACO and multithreaded multi-colony ACO. Furthermore, conducting this experiment shows the advantage of using concurrent exploration when solving combinatorial search space. 
+        Table~\ref{tab:single_vs_multi_comparison} shows the results of running the single-threaded multi-colony ACO (CP-DCM-ACO) and the multithreaded multi-colony ACO (MT-CP-DCM-ACO). The solvers processed the same set of instances consisting of 100 puzzles each grid size ($9\times9$, $16\times16$, and $25\times25$) 5 times. We can see from the table that multithreading does not improves the speed of the solver but also offers greater scalability. It is clear that by leveraging parallel processing, the solver can guarantee finding a solution even in extreme solution space. 
 
 \begin{table}[H]
     \centering
-    \caption{Performance Comparison of CP-DCM-ACO vs. MT-CP-DCM-ACO across $9 \times 9$, $16 \times 16$, and $25 \times 25$ Sudoku Instances (100 Puzzles, 5 Trial Runs).}
+    \caption{Performance comparison in terms of success rate (\%), average runtime (seconds), and average number of iterations across puzzle sizes. }
     \label{tab:single_vs_multi_comparison}
     \footnotesize
     \begin{tabular}{@{}llccc@{}}
@@ -195,18 +195,18 @@ The experimental setup contains different sequence of experiments targeting spec
             \legend{CP-DCM-ACO, MT-CP-DCM-ACO}
         \end{axis}
     \end{tikzpicture}
-    \caption{Shows the computational efficiency between CP-DCM-ACO and MT-CP-DCM-ACO across puzzle sizes.}
+    \caption{Comparison of computational efficiency (runtime in seconds and iteration count) between CP-DCM-ACO and MT-CP-DCM-ACO across different puzzle sizes. }
     \label{fig:performance_comparison}
 \end{figure}
 
-        Furthermore, Figure~\ref{fig:performance_comparison} shows that the computational costs of the MT-CP-DCM-ACO are still less than that of the CP-DCM-ACO even though additional overhead due to thread communication is introduced in the multithreaded solver. This result shows that multithread solver explores more regions of the solutions space thus speeding up the search for a solution. 
+        Furthermore, Figure~\ref{fig:performance_comparison} shows that the computational costs of the MT-CP-DCM-ACO are still less than that of the CP-DCM-ACO even though additional overhead due to thread communication is introduced in the multithreaded solver. This result shows that multithreaded solver explores more regions of the solutions space thus speeding up the search for a solution. 
 
 \subsection{Experiment 3: Without Thread Communication vs With Thread Communication}
         This experiment shows the necessity of the thread communication in searching a soluiton in a very complex solution space. Table~\ref{tab:with_vs_without_comm} shows that the setup that does not accomodate thread communication had less computational cost in $9\times9$ and $16\times16$ puzzles than with thread communication. It is because thread communication for this grid sizes is rarely triggered. The slight difference in computational cost betweeen the two setups are due to the initial overhead of the threads' communication. However when the grid sizes becomes larger like $25\times25$, colonies inside each threads requires more iterations to converge. Topology-aware setup allows the threads to exchange pheromone information thereby increasing the diversity of each thread. Uncommunicative setup suffers from stagnation as it get trapped to local optima thus failing to converge to a solution. 
 
 \begin{table}[H]
     \centering
-    \caption{Impact of Thread Communication on MT-CP-DCM-ACO across $9 \times 9$, $16 \times 16$, and $25 \times 25$ Sudoku Instances (100 Puzzles, 5 Trial Runs).}
+    \caption{Impact of thread communication on the MT-CP-DCM-ACO performance in terms of success rate (\%), average runtime (seconds), and average number of iterations across puzzle sizes.}
     \label{tab:with_vs_without_comm}
     \footnotesize
     \begin{tabular}{@{}llccc@{}}
@@ -253,14 +253,16 @@ The experimental setup contains different sequence of experiments targeting spec
 \end{table}
 
 \subsection{Experiment 4: Multithreaded Multi-Colony ACO vs State-of-the-Art Sudoku Solver}
-        In table~\ref{tab:exp4_sota_comparison}, we can see that in all puzzle size the proposed model, MT-CP-DCM-ACO, outperforms all the other algorithms. For puzzle sizes $9\times9$ and $16\times16$, there is a clear reduction in execution times and number of iteration from the CP-ACS to CP-DCM-ACO, then to MT-CP-DCM-ACO. Then, it was magnified to $25\times25$ sudoku puzzle as baseline algorithms struggles to achieved a 100\% solution success rate. The multithreaded solver achieved 100\% success rate even in large-scale $25\times25$ sudoku because of its structured multi-level collaboration. 
+        In table~\ref{tab:exp4_sota_comparison}, we can see that in all puzzle size the proposed model, MT-CP-DCM-ACO, outperforms all the other algorithms. For puzzle sizes $9\times9$ and $16\times16$, there is a clear reduction in execution times and number of iteration from the CP-ACS to CP-DCM-ACO, then to MT-CP-DCM-ACO. Then, it was magnified to $25\times25$ Sudoku puzzle as baseline algorithms struggles to achieved a 100\% solution success rate. The multithreaded solver achieved 100\% success rate even in large-scale $25\times25$ Sudoku because of its structured multi-level collaboration. 
 
         It is also clear in the table that multi-colony outperforms the single-colony solver across all grid sizes. The multi-colony solver already addresses the premature convergence of the single colony solvers by utilizing heterogeneous colonies that balances exploration and exploitation. By periodically triggering the collaboration between colonies, the improvement from the solver's performance can already be observed.
         
-        However the multi-colony ACO, though enforces collaboration between heterogeneous ACS and MMAS colonies, still suffered from stagnation. This solver only covers few regions of a combinatorial search space when solving large-scale sudoku. By utilizing parallel processing and by placing the entropy-aware colonies inside each communicating threads, diversity increases thus overcoming premature convergence. The communication between threads also prevents redundant visits of the same region in the solution space. This is the reason why the multithread multi-colony ACO solver showed the best performance and results.
+        However the multi-colony ACO, though enforces collaboration between heterogeneous ACS and MMAS colonies, still suffered from stagnation. This solver only covers few regions of a combinatorial search space when solving large-scale Sudoku. By utilizing parallel processing and by placing the entropy-aware colonies inside each communicating threads, diversity increases thus overcoming premature convergence. The communication between threads also prevents redundant visits of the same region in the solution space. This is the reason why the multithreaded multi-colony ACO solver showed the best performance and results.
+
+        
 \begin{table}[H]
     \centering
-    \caption{Performance Comparison of the State-of-the-Art (CP-ACS) vs. CP-DCM-ACO and MT-CP-DCM-ACO across $9 \times 9$, $16 \times 16$, and $25 \times 25$ Sudoku Instances (100 Puzzles, 5 Trial Runs).}
+    \caption{Performance comparison in terms of success rate (\%), average runtime (seconds), and average number of iterations of the State-of-the-Art solver (CP-ACS) vs. CP-DCM-ACO and MT-CP-DCM-ACO across puzzle sizes.}
     \label{tab:exp4_sota_comparison}
     \footnotesize
     \begin{tabular}{@{}llccc@{}}
@@ -319,9 +321,9 @@ The experimental setup contains different sequence of experiments targeting spec
 \end{table}
 
 \subsection{Experiment 5: Model Deployment}
-        This experiment translates the multithread multi-colony ACO sudoku solver into a functional web-based application. Just like any sudoku game, user must follow the rules of sudoku in order to solve the puzzle. Upon accesing the application, user can choose either to play in experiment mode or game mode. 
+        This experiment translates the multithreaded multi-colony ACO Sudoku solver into a functional web-based application. Just like any Sudoku game, user must follow the rules of Sudoku in order to solve the puzzle. Upon accesing the application, user can choose either to play in experiment mode or game mode. 
 
-        User can choose what values of the parameters he/she wants to try in experiment mode (See Figure~\ref{web-app:Experiment_Mode}). In game mode (See Figure~\ref{web-app:Game_Mode}), user can ask the application to solve the puzzle but automatically the multithread multi-colony ACO solver is called with its best configuration. User can see the real progress of the solver when it starts solving the puzzle because the application has a feature of real-time visualization of the puzzle. 
+        User can choose what values of the parameters he/she wants to try in experiment mode (See Figure~\ref{web-app:Experiment_Mode}). In game mode (See Figure~\ref{web-app:Game_Mode}), user can ask the application to solve the puzzle but automatically the multithreaded multi-colony ACO solver is called with its best configuration. User can see the real progress of the solver when it starts solving the puzzle because the application has a feature of real-time visualization of the puzzle. 
 
         \begin{figure}[H]
                 \centering

@@ -2,14 +2,16 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Machine specifications}}{51}{table.caption.62}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Best Configuration of Multithread Multi-colony ACO}}{55}{table.caption.70}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Performance Comparison of CP-DCM-ACO vs. MT-CP-DCM-ACO across $9 \times 9$, $16 \times 16$, and $25 \times 25$ Sudoku Instances (100 Puzzles, 5 Trial Runs).}}{56}{table.caption.72}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Impact of Thread Communication on MT-CP-DCM-ACO across $9 \times 9$, $16 \times 16$, and $25 \times 25$ Sudoku Instances (100 Puzzles, 5 Trial Runs).}}{58}{table.caption.75}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Performance Comparison of the State-of-the-Art (CP-ACS) vs. CP-DCM-ACO and MT-CP-DCM-ACO across $9 \times 9$, $16 \times 16$, and $25 \times 25$ Sudoku Instances (100 Puzzles, 5 Trial Runs).}}{60}{table.caption.77}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Machine specifications}}{52}{table.caption.62}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Best Configuration of Multithreaded Multi-colony ACO}}{56}{table.caption.70}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Performance comparison in terms of success rate (\%), average runtime (seconds), and average number of iterations across puzzle sizes. }}{57}{table.caption.72}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Impact of thread communication on the MT-CP-DCM-ACO performance in terms of success rate (\%), average runtime (seconds), and average number of iterations across puzzle sizes.}}{59}{table.caption.75}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Performance comparison in terms of success rate (\%), average runtime (seconds), and average number of iterations of the State-of-the-Art solver (CP-ACS) vs. CP-DCM-ACO and MT-CP-DCM-ACO across puzzle sizes.}}{61}{table.caption.77}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Baseline Configuration}}{64}{table.caption.82}%
-\contentsline {table}{\numberline {A.2}{\ignorespaces Summary of the impact of different values of Core ACO parameter on model performance across $9\times 9$, $16\times 16$, and $25\times 25$ Sudoku Instances.}}{65}{table.caption.84}%
-\contentsline {table}{\numberline {A.3}{\ignorespaces Summary of the impact of Timeout values on model performance across $9\times 9$, $16\times 16$, and $25\times 25$ Sudoku Instances.}}{67}{table.caption.85}%
-\contentsline {table}{\numberline {A.4}{\ignorespaces Summary of the impact of Multi-Colony ACO parameters on model performance across $9\times 9$, $16\times 16$, and $25\times 25$ Sudoku Instances.}}{67}{table.caption.87}%
-\contentsline {table}{\numberline {A.5}{\ignorespaces Summary of the impact of Multithread Parameters on model performance across $9\times 9$, $16\times 16$, and $25\times 25$ Sudoku Instances.}}{68}{table.caption.89}%
+\contentsline {table}{\numberline {A.1}{\ignorespaces Baseline Configuration}}{65}{table.caption.83}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces Summary of the impact of different values of Core ACO parameter on model performance across $9\times 9$, $16\times 16$, and $25\times 25$ Sudoku Instances.}}{67}{table.caption.85}%
+\contentsline {table}{\numberline {A.3}{\ignorespaces Summary of the impact of Timeout values on model performance across $9\times 9$, $16\times 16$, and $25\times 25$ Sudoku Instances.}}{68}{table.caption.86}%
+\contentsline {table}{\numberline {A.4}{\ignorespaces Summary of the impact of Multi-Colony ACO parameters on model performance across $9\times 9$, $16\times 16$, and $25\times 25$ Sudoku Instances.}}{68}{table.caption.88}%
+\contentsline {table}{\numberline {A.5}{\ignorespaces Summary of the impact of Multithread Parameters on model performance across $9\times 9$, $16\times 16$, and $25\times 25$ Sudoku Instances.}}{70}{table.caption.90}%
+\contentsline {table}{\numberline {A.6}{\ignorespaces Performance Comparison in terms of success rate (\%), average runtime (seconds), average iteration, and average idle time of each thread per barrier entry (seconds/entry) of varying number of Threads in MT-CP-DCM-ACO solver on $25\times 25$ Sudoku instance}}{72}{table.caption.92}%
+\contentsline {table}{\numberline {A.7}{\ignorespaces Performance Comparison in terms of success rate (\%), average runtime (seconds), and average number of iteration of CP-ACS, CP-DCM-ACO, and MT-CP-DCM-ACO across Fixed Percentages (F\%) on $25\times 25$ Sudoku Instances.}}{74}{table.caption.95}%

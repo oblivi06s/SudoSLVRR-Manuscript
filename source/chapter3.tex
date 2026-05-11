@@ -6,21 +6,21 @@
   \label{general} 
 \end{center}
 
-Figure~\ref{general} shows the general overview of the methodology from data gathering to model deployment. Inputting the sudoku puzzles retrieved from publicly available dataset with different sizes and number of clues into the constraint propagation defines the initial step of the process. Constraint propagation removes infeasible solutions thus reducing the search space through naked single elimination. After that, the proposed model, collaborative multithreaded multi-colony ant optimization, receives the refined puzzle. The collaborative mechanism between threads is periodically activated to enhance the search process for a valid solution. The execution is terminated when there are any threads who successfully generate a valid sudoku solution.  The proposed model is then evaluated based on performance metrics namely solution success rate, average completion time, standard deviation, and average number of cycles. 
+Figure~\ref{general} shows the general overview of the methodology from data gathering to model deployment. Inputting the Sudoku puzzles retrieved from publicly available dataset with different sizes and number of clues into the constraint propagation defines the initial step of the process. Constraint propagation eliminates infeasible assignments in the puzzle, reducing the search space and improving the efficiency of the optimization phase by preventing the ants from exploring regions of the search space that contain invalid solutions. After that, the proposed model, collaborative multithreaded multi-colony ant optimization, receives the refined puzzle. The collaborative mechanism between threads is periodically activated to enhance the search process for a valid solution. The execution is terminated when any thread successfully generates a valid Sudoku solution.  The proposed model is then evaluated based on performance metrics namely solution success rate, average completion time, standard deviation, and average number of cycles. 
 
 \section{Dataset}
-The study used a large pool of publicly available sudoku instances with sizes 9 x 9 and 16 x 16. The proposed solver is then used to solve these puzzles and selected 100 most difficult instances for the final benchmark instances. The selection was based on the computational effort and solving time of the solver. For large 25 x 25 grids, sudoku instances of this size were obtained from the work of Lloyd and Amos~\cite{lloyd2020}. The final benchmark dataset is composed of 300 sudoku instances with 100 instances for each puzzle size. 
+The study used publicly available $9\times9$ Sudoku puzzles retrieved from The New Sudoku Players’ Forum (http://forum.enjoysudoku.com/the-hardest-sudokus-new-thread-t6539.html) and $16\times16$ Sudoku datasets from an open-source Github repository (https://github.com/goomii17/16X16-Sudoku-Dataset) to ensure reproducibility. For large 25 x 25 grids, Sudoku instances of this size were obtained from the work of Lloyd and Amos~\cite{lloyd2020}. The baseline solver (CP-ACS) is then used to solve these puzzles and selected the 100 most difficult instances for the final benchmark instances. The selection was based on the computational effort and solving time of the solver. The final benchmark dataset is composed of 300 Sudoku instances which is partitioned into 100 selected hard puzzles for each puzzle size, providing diverse puzzle complexity to evaluate the solver’s scalability and adaptability. 
             
-All these sudoku puzzles are stored in a text file that includes the position of the clues. The  ratio between the number of clues and the puzzle size defined the complexity of the puzzle. 
+All these Sudoku puzzles are stored in a text file that includes the position of the clues. The ratio between the number of clues and the puzzle size defines the complexity
 
         \begin{figure}[H]
             \includegraphics[width=\linewidth]{../figures/Dataset.png}
             \centering
-            \caption{Shows different sudoku puzzle sizes.}\label{dataset}
+            \caption{Shows different Sudoku puzzle sizes.}\label{dataset}
         \end{figure}
 
 \subsubsection*{File Format}
-The sudoku instances are stored in text file with a specific layout. The first integer found in the first line of the input text file refers to the size of the subgrid from the puzzle. It is the order of the puzzle ($N = \text{order}^2$)
+The Sudoku instances are stored in text file with a specific layout. The first integer found in the first line of the input text file refers to the size of the subgrid from the puzzle. It is the order of the puzzle ($N = \text{order}^2$)
         \begin{itemize}
             \item ``3'' - refers to a $9 \times 9$ Sudoku puzzle.
             \item ``4'' - refers to a $16 \times 16$ Sudoku puzzle.
@@ -28,7 +28,7 @@ The sudoku instances are stored in text file with a specific layout. The first i
         \end{itemize}
 
 
-%However, the first integer found in the first line of the sudoku puzzle instances with sizes $6 \times 6$ and $12 \times 12$ refers to the size of the puzzle itself and not the size of the subgrid anymore. 
+%However, the first integer found in the first line of the Sudoku puzzle instances with sizes $6 \times 6$ and $12 \times 12$ refers to the size of the puzzle itself and not the size of the subgrid anymore. 
 %        \begin{itemize}
 %            \item ``6'' - refers to a $6 \times 6$ Sudoku puzzle.
 %            \item ``12'' - refers to a $12 \times 12$ Sudoku puzzle.
@@ -46,14 +46,14 @@ The second integer found in the second line of the input text file is just a pla
 \section{SudoSLVRR: Design and Structure}
 
 \subsection{Constraint Propagation}
-The constraint propagation (CP) is the one that acts like a preprocessing step of the proposed  multithreaded multi-colony ant optimization model with ring and random communication topologies. It narrows down the search space as it removes infeasible cell-digit assignments before the optimization begins. In the context of Sudoku, rules are established and should be followed. Each cell must contain only one digit while satisfying these three simultaneous constraints:
+The constraint propagation (CP) is the one that acts like a preprocessing step of the proposed  multithreaded multi-colony ant optimization model with ring and random communication topologies. It narrows down the search space by removing infeasible cell-digit assignments, thereby creating a refined starting search space and minimizing computational effort for the optimization phase. In the context of Sudoku, rules are established and should be followed. Each cell must contain only one digit while satisfying these three simultaneous constraints:
         \begin{enumerate}
             \item \textbf{Row Constraint} - Each number from 1 to {$n$} must occur exactly once in every row. 
             \item \textbf{Column Constraint} - Each number from 1 to {$n$} must occur exactly once in every column.
             \item\textbf{Subgrid Constraint} - Each number from 1 to {$n$} must occur exactly once within each subgrid or region.
         \end{enumerate}
 
-It is the constraint propagation who makes sure that these three constraints are satisfied. Initially, CP assumes all the numbers from 1 to n are possible for every empty cell as shown in Figure~\ref{valueSet}. As we all know, the sudoku puzzle has clues before it was even fed to CP. For every cell in the puzzle, it contains candidate values which is a set of values that is possible to be assigned in the cell.
+It is the constraint propagation who makes sure that these three constraints are satisfied. Initially, CP assumes all the numbers from 1 to n are possible for every empty cell as shown in Figure~\ref{valueSet}. As we all know, the Sudoku puzzle has clues before it was even fed to CP. For every cell in the puzzle, it contains candidate values which is a set of values that is possible to be assigned in the cell.
 
         \begin{figure}[H]
             \includegraphics[width=\linewidth]{../figures/ValueSet.png}
@@ -109,7 +109,7 @@ This process of elimination of values is repeated until no further logical deduc
 The proposed framework starts with the initialization phase where necessary variables should be set before any construction of solution begins. These variables are the necessary components as it affects the overall performance of the solver. 
 
     \begin{enumerate}
-        \item \textbf{Number of Threads} - This includes the threads setup and its number. Threads are the one holding the main solver in this framework.
+        \item \textbf{Number of Threads} - This includes the threads setup and its number. Threads are the ones that hold the main solver in this framework.
         \item \textbf{stopFlag} - This shared boolean flag is very important in terminating all the independent threads from working. When a solution is found from any of the threads or time limit is already exhausted, this flag will be set to true signaling all threads to stop. 
         \item\textbf{Communication Interval} - This is a parameter for multithreading that dictates when the threads should communicate. Adapted from~\cite{yang2015}, the interval is a non-fixed pattern as there is a long interval and a short interval. 
     \end{enumerate}
@@ -136,7 +136,7 @@ The proposed framework starts with the initialization phase where necessary vari
   In this study, the proposed framework implements multiple threads; each thread runs an independent instance of CP-DCM-ACO. This is the main solver of this framework and it integrates the constraint propagation and the dynamic collaborative multi-colony ant optimization. As mentioned earlier, constraint propagation is adapted from Lloyd and Amos~\cite{lloyd2020}. The dynamic collaborative multi-colony ant optimization (DCM-ACO) is adapted from the work of  Mo et al.~\cite{mo2022} where there is a cooperation between heterogeneous colonies of ant. 
 
   The popular problem where the ant colony system is used to solve is called Travelling Salesman Problem (TSP). Ants in this problem travel between cities and keep the path information. However in the context of Sudoku, the ``path'' that the ants keep is the cells visited and the value assigned to that cell by them. But before the ants begin their tour, the CP removes first any invalid assignments of values to cells. Because of this, ants only waste their time in choosing among the valid choices of values. 
-  A local copy of the puzzle from the CP is given to each ant. Then, these ants start from random cell $i$ and move from left to right as shown in the Figure~\ref{Ants start}. 
+  A local copy of the puzzle from the CP is given to each ant. Then, these ants start from a random cell and traverse the grid from left to right to ensure all decision variables are evaluated while satisfying the Sudoku constraints as shown in the Figure~\ref{Ants start}. 
 
         \begin{figure}[H]
             \includegraphics[width=0.9\textwidth]{../figures/Ants start.png}
@@ -144,7 +144,7 @@ The proposed framework starts with the initialization phase where necessary vari
             \caption{Ants start at random cell}\label{Ants start}
         \end{figure}
 
-    When the initial pass to the CP is done, the ants start their tour. The ants visit cell $i$ and check if the cell has already a fixed value assigned to it. If there is none, the ants look at the ``value set'' $v_i$, which contains all the valid candidate values for that cell. To choose a value $s$ from this set, ant depends on a random variable $q$ and compare this to $q_0$ which is a tunable parameter and whose value must be between $[0, 1]$. This random variable determines how greedy the ants should be. The value selection s is defined as follows:
+    When the initial pass to the CP is done, the ants start their tour. The ants visit cell $i$ and check if the cell has already a fixed value assigned to it. If there is none, the ants look at the ``value set'' $v_i$, which contains all the valid candidate values for that cell. To choose a value $s$ from this set, ant depends on a random variable $q$ and compare this to $q_0$ which is a tunable parameter and whose value must be between $[0, 1]$. This random variable is critical for preventing premature convergence as it balances the solver’s exploitation of promising assignments (greedy selection) and exploration of undiscovered regions in the search space (probabilistic selection). The value selection s is defined as follows:
 
         \begin{equation}
         s = \begin{cases} 
@@ -155,23 +155,9 @@ The proposed framework starts with the initialization phase where necessary vari
 
 where $\tau_{i}^{k}$ is the pheromone value for assigning the value $k$ to cell $i$.
 
-  \subsubsection*{Greedy and Roulette Wheel Selection}
-\begin{center}
-    \begin{minipage}{\linewidth}
-        \centering
-        \includegraphics[width=0.8\linewidth]{../figures/Greedy Selection.png} 
-        \captionof{figure}{Ants performs greedy selection} 
-        \label{Ant Greedy} 
-        
-        \vspace{1.0cm} % Slightly smaller gap
-        
-        \includegraphics[width=0.8\linewidth]{../figures/Probabilities.png} 
-        \captionof{figure}{Ants performs roulette wheel selection when $q \ge q_0$} 
-        \label{Ant Roulette} 
-    \end{minipage}
-\end{center}
+\subsubsection*{Greedy and Roulette Wheel Selection}
 
-When $q \ge q_0$, the ants perform the roulette wheel selection instead of greedy selection (See Figure~\ref{Ant Greedy}). As opposed to the greedy selection, ants do not assign immediately the value that has the highest pheromone value for a certain cell. Instead, it calculates the probability $p_{i}^{k}$ of choosing the value $k$ and assigning it to the cell $i$ as shown in Figure~\ref{Ant Roulette}. The probability of each value getting picked from the value set depends on their pheromone values. However unlike the greedy selection, the value $s$ with low pheromone value still have a chance to be assigned to cell $i$.  The probability distribution is given by:
+When $q \ge q_0$, the ants perform the roulette wheel selection instead of greedy selection (See Figure~\ref{Ant Greedy}). As opposed to the greedy selection, ants do not assign immediately the value that has the highest pheromone value for a certain cell. Instead, it calculates the probability $p_{i}^{k}$ of choosing the value $k$ and assigning it to the cell $i$ as shown in Figure~\ref{Ant Roulette}. This probability favors values with higher pheromone concentration while still allowing exploration by maintaining fractional probabilities for alternative assignments. Unlike the greedy selection, the value $s$ with low pheromone value still has a chance to be assigned to cell $i$.  The probability distribution is given by:
 
         \begin{equation}
         p_{i}^{k} = \frac{\tau_{i}^{k}}{\sum_{j \in v_i} \tau_{i}^{j}}
@@ -180,6 +166,21 @@ When $q \ge q_0$, the ants perform the roulette wheel selection instead of greed
         where $k$ is a candidate value from the value set $v_i$. 
 
 After the ant fixes the value for cell $i$, it calls the CP to propagate changes as shown in Figure~\ref{fig:cpacs_step_1b} and~\ref{fig:cpacs_step_2b}. Because of this, every after ant's step the CP further reduces the search space. It ensures that every next step, only valid candidates are chosen. This propagation also is significant in identifying that a certain move of the ant will lead to conflict (neighboring cells will have no valid candidate values anymore). That cell is considered fail cells.
+
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{../figures/Greedy Selection.png} 
+        \captionof{figure}{Ants perform greedy selection} 
+        \label{Ant Greedy} 
+        
+        \vspace{1.0cm} % Slightly smaller gap
+        
+        \includegraphics[width=0.9\linewidth]{../figures/Probabilities.png} 
+        \captionof{figure}{Ants perform roulette wheel selection when $q \ge q_0$} 
+        \label{Ant Roulette} 
+    \end{minipage}
+\end{center}
 
 \subsubsection*{Local Pheromone Update}
 
@@ -193,30 +194,31 @@ The local pheromone update given by the following equation:
 
 where $\xi$ is the local pheromone evaporation coefficient, and $\tau_{0}$ is the initial pheromone value.
 
+\vspace{-0.5cm}
 % --- CP Rule 1 ---
 \begin{center}
-    \includegraphics[width=0.65\linewidth]{../figures/CP in ACS Rule 1 a.png} 
+    \includegraphics[width=0.7\linewidth]{../figures/CP in ACS Rule 1 a.png} 
     \captionof{figure}{Before applying CP Rule 1} 
     \label{fig:cpacs_step_1a} 
     
     \vspace{0.5cm} % Gap between images
     
-    \includegraphics[width=0.65\linewidth]{../figures/CP in ACS Rule 1 b.png} 
+    \includegraphics[width=0.7\linewidth]{../figures/CP in ACS Rule 1 b.png} 
     \captionof{figure}{After applying CP Rule 1} 
     \label{fig:cpacs_step_1b} 
 \end{center}
 
-\vspace{1cm} % Gap between Rule 1 and Rule 2
+\vspace{0.5cm} % Gap between Rule 1 and Rule 2
 
 % --- CP Rule 2 ---
 \begin{center}
-    \includegraphics[width=0.65\linewidth]{../figures/CP in ACS Rule 2 a.png} 
+    \includegraphics[width=0.7\linewidth]{../figures/CP in ACS Rule 2 a.png} 
     \captionof{figure}{Before applying CP Rule 2} 
     \label{fig:cpacs_step_2a} 
     
     \vspace{0.5cm} % Gap between images
     
-    \includegraphics[width=0.65\linewidth]{../figures/CP in ACS Rule 2 b.png} 
+    \includegraphics[width=0.7\linewidth]{../figures/CP in ACS Rule 2 b.png} 
     \captionof{figure}{After applying CP Rule 2} 
     \label{fig:cpacs_step_2b} 
 \end{center}
@@ -228,7 +230,7 @@ where $\xi$ is the local pheromone evaporation coefficient, and $\tau_{0}$ is th
         \end{figure}
 
 \subsubsection*{Objective Function}
-In TSP, the objective of any algorithm is often to minimize the cost of the tour. However, in the context of Sudoku, some ants may fail to solve a sudoku puzzle if they assigned a value to a certain cell that leads the subsequent cells to have no valid candidate value anymore. Therefore, sudoku should be complete in order to be considered as solved and this should also define the objective. 
+In TSP, the objective of any algorithm is often to minimize the cost of the tour. However, in the context of Sudoku, some ants may fail to solve a Sudoku puzzle if they assigned a value to a certain cell that leads the subsequent cells to have no valid candidate value anymore. Therefore, a Sudoku puzzle must be complete in order to be considered solved and this should also define the objective. 
 
         \begin{figure}[H]
             \includegraphics[width=\textwidth]{../figures/Finding Best Ant.png}
@@ -254,7 +256,7 @@ The quality of the solution is determined by how close the solution is to comple
         \Delta \tau = \frac{N}{N - f_{best}}
         \end{equation}
 
-where $N$ is the total number of cells in the puzzle and $f_{best}$ is the number of filled cells in the iteration-best solution. For example as shown in Figure~\ref{finding best ant}, the best ant was able to fill 43 cells out of 81 cell ($9 \times 9$ sudoku puzzle). Therefore, \textbf{$\Delta \tau = 2.131$}. 
+where $N$ is the total number of cells in the puzzle and $f_{best}$ is the number of filled cells in the iteration-best solution. For example as shown in Figure~\ref{finding best ant}, the best ant was able to fill 43 cells out of 81 cell ($9 \times 9$ Sudoku puzzle). Therefore, \textbf{$\Delta \tau = 2.131$}. 
 
 This pheromone deposit, $\Delta \tau$, is then compared to the best pheromone deposit denoted as $\Delta \tau_{best}$ (initialized to 0). If $\Delta \tau$ is greater than the $\Delta \tau_{best}$, the solver replaces the value of the $\Delta \tau_{best}$ with the value of $\Delta \tau$ ($\Delta \tau_{best} = 2.131$). Similarly, the global-best solution is replaced with the iteration-best solution. The global pheromone update is then applied to the cell-value assignments (in our example the value 2 for cell 3) found in the global-best solution (See Figure~\ref{Global Update}). 
 
@@ -264,7 +266,7 @@ This pheromone deposit, $\Delta \tau$, is then compared to the best pheromone de
 
 where $\rho$ is the standard evaporation rate and whose value is between [0, 1].
 
-This pheromone deposit $\Delta \tau_{best}$ is inversely proportional to the quality of the solution found. When the solution is nearly solved, the denominator decreases thus increasing the $\Delta \tau$. This makes the ants for the next iteration to be strongly influenced towards the paths that give an almost completed sudoku puzzle. 
+This pheromone deposit $\Delta \tau_{best}$ is inversely proportional to the quality of the solution found. When the solution is nearly solved, the denominator decreases thus increasing the $\Delta \tau$. This makes the ants for the next iteration to be strongly influenced towards the paths that give an almost completed Sudoku puzzle. 
 
         \begin{figure}[H]
             \includegraphics[width=0.9\textwidth]{../figures/Global Update.png}
@@ -489,15 +491,15 @@ where $\rho$ is the pheromone evaporation rate, and $\tau_{ij}$ is the pheromone
             \caption{Thread 0 updates pheromone levels of the values from the candidate values on cell 2 based on the received solutions from Thread 2 and 3 using equation (23) and (24).}\label{Thread Comms}
         \end{figure}
 
-This pheromone influence from other threads, as shown in Figure~\ref{Thread Comms}, allows the MMAS to accept external information about the other region of the solution space. Although the ACS colonies are not using this information, they are still indirectly influenced by this when the pheromone fusion mechanism is triggered. Because of this, the exploration to the solution space has greatly increased making this framework effective for solving complex sudoku puzzles.
+This pheromone influence from other threads, as shown in Figure~\ref{Thread Comms}, allows the MMAS to accept external information about the other region of the solution space. Although the ACS colonies are not using this information, they are still indirectly influenced by this when the pheromone fusion mechanism is triggered. Because of this, the exploration to the solution space has greatly increased making this framework effective for solving complex Sudoku puzzles.
     
 \subsubsection*{Stopping Criteria}
-The algorithm stops its execution once there is a thread that has already solved the sudoku puzzle. If any of the threads had constructed a complete and valid sudoku solution, it triggers the stopFlag to true, sending the signal to other concurrent threads to stop. A predefined time is also set in case threads are struggling to find a solution. If the execution time exceeds the predefined time, the algorithm is forced to terminate.
+The algorithm stops its execution once there is a thread that has already solved the Sudoku puzzle. If any of the threads had constructed a complete and valid Sudoku solution, it triggers the stopFlag to true, sending the signal to other concurrent threads to stop. A predefined time is also set in case threads are struggling to find a solution. If the execution time exceeds the predefined time, the algorithm is forced to terminate.
 
 
 \section{Model Deployment Details}
 
-The model is deployed as a web-based application using Flask and C++. The application allows the user to manually input numbers to the sudoku puzzle or remove numbers from a solved puzzle. There is also a list of instances a user can choose instead of creating their own puzzle. The application also allows the user to change the values of the parameter used by the solver in the back-end. Upon solving, the application allows the visualization of how the solver updates the values in the puzzle. This allows the user to observe how the solver converges to a final valid solution real-time (See Figure~\ref{deployment}).
+The model is deployed as a web-based application using Flask and C++. The application allows the user to manually input numbers to the Sudoku puzzle or remove numbers from a solved puzzle. There is also a list of instances a user can choose instead of creating their own puzzle. The application also allows the user to change the values of the parameter used by the solver in the back-end. Upon solving, the application allows the visualization of how the solver updates the values in the puzzle. This allows the user to observe how the solver converges to a final valid solution real-time (See Figure~\ref{deployment}).
 
         \begin{figure}[H]
             \includegraphics[width=0.9\textwidth]{../figures/SudoSoLVRR.png}
